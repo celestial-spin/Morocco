@@ -248,6 +248,9 @@ nav {
 
 .hero .lead-text {
   color: var(--warm-white);
+}
+
+.hero-content p {
   margin-left: auto;
   margin-right: auto;
 }
