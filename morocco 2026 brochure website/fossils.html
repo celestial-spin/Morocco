@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fossils & Souvenirs - Morocco Trip Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .fossil-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-lg) 0;
+        }
+        
+        .test-card {
+            background: var(--cream);
+            padding: var(--space-md);
+            border-left: 4px solid var(--terracotta);
+            border-radius: 4px;
+        }
+        
+        .test-card h4 {
+            color: var(--terracotta);
+            margin-top: 0;
+            font-family: var(--font-display);
+        }
+        
+        .photo-placeholder {
+            background: linear-gradient(135deg, #e8dcc8 0%, #d4b894 100%);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--deep-blue);
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            margin: var(--space-lg) 0;
+            border: 2px dashed var(--terracotta);
+        }
+        
+        .price-table {
+            width: 100%;
+            margin: var(--space-lg) 0;
+            font-size: 0.875rem;
+        }
+        
+        .price-table th {
+            background: var(--deep-blue);
+            color: var(--warm-white);
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .price-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--sand);
+        }
+        
+        .price-table tr:nth-child(even) {
+            background: var(--cream);
+        }
+        
+        .warning-box {
+            background: #fef3e8;
+            border-left: 4px solid #C1512E;
+            padding: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+        
+        .success-box {
+            background: #e8f4e8;
+            border-left: 4px solid #7A895B;
+            padding: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Morocco 2026</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="itinerary-daily.html">Daily Guide</a></li>
+                <li><a href="itinerary-summary.html">Summary</a></li>
+                <li><a href="journey.html">Journey</a></li>
+                <li><a href="fossils.html" class="active">Fossils</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="page-header-background" style="background: url('photo_brochure/morocco ammonites.webp') center/cover no-repeat;">
+        </div>
+        <div class="page-header-content">
+            <p class="subtitle">Shopping Guide</p>
+            <h1>Fossils & Meteorites</h1>
+            <p class="lead-text">What to buy, where to buy it, and how to spot fakes</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Introduction -->
+        <section class="content-section">
+            <p class="subtitle">Why Morocco?</p>
+            <h2>World's Fossil Capital</h2>
+            
+            <div class="info-box">
+                <p><strong>Morocco is one of the world's richest fossil sites</strong>, particularly around Erfoud and the Sahara Desert. 350 million years ago, this was the bottom of an ancient ocean called the Tethys Sea. Today, the extreme desert dryness perfectly preserves these incredible specimens.</p>
+            </div>
+
+            <div class="two-column mb-lg">
+                <div>
+                    <h3>What You'll Find</h3>
+                    <p><strong>Trilobites:</strong> Ancient sea creatures (300-500 million years old)<br>
+                    <strong>Ammonites:</strong> Spiral-shelled mollusks (100-400 million years old)<br>
+                    <strong>Orthoceras:</strong> Straight-shelled squid ancestors (350 million years old)<br>
+                    <strong>Meteorites:</strong> Agoudal iron meteorites (40,000+ years old)</p>
+                </div>
+                <div>
+                    <h3>The Industry</h3>
+                    <p><strong>50,000+ Moroccans</strong> earn their living from fossil trade<br>
+                    <strong>£40+ million</strong> annual industry<br>
+                    <strong>World-renowned</strong> for quality specimens<br>
+                    <strong>BUT:</strong> Also famous for fakes!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Where to Shop -->
+        <section class="content-section">
+            <p class="subtitle">On Your Route</p>
+            <h2>Best Places to Buy</h2>
+
+            <div class="highlight-box mb-lg">
+                <h3>🏆 #1 BEST LOCATION: Erfoud/Rissani (Day 5 - April 3)</h3>
+                <p><strong>Why here:</strong> Erfoud is Morocco's "Fossil Capital" - the epicenter of the industry<br>
+                <strong>When:</strong> Your drive from Merzouga to N'kob passes RIGHT through Rissani (~10:30-11:00am)<br>
+                <strong>Time needed:</strong> 45-90 minutes for browsing + purchasing</p>
+            </div>
+
+            <h3>Recommended Shops in Rissani/Erfoud</h3>
+
+            <div class="fossil-grid">
+                <div class="info-box">
+                    <h4>Mezane Fossil Store</h4>
+                    <p><strong>Location:</strong> Main road between Erfoud and Rissani<br>
+                    <strong>Why:</strong> Family business, fair prices, not a tourist trap<br>
+                    <strong>Features:</strong> Workshop tour, preparation demonstration<br>
+                    <strong>Rating:</strong> Highly recommended on TripAdvisor</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Tahiri Museum of Fossils</h4>
+                    <p><strong>Location:</strong> Erfoud (15 min from Rissani)<br>
+                    <strong>Features:</strong> Museum + shop, impressive collection<br>
+                    <strong>Range:</strong> All price points from £5 to £500+</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Fossiles d'Erfoud</h4>
+                    <p><strong>Location:</strong> Erfoud<br>
+                    <strong>Features:</strong> Active workshop, outdoor fossil area<br>
+                    <strong>Bonus:</strong> See stone cutting & polishing process</p>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Where NOT to Buy:</h4>
+                <p><strong>Avoid:</strong> Roadside stalls on Tizi n'Tichka Pass (high fake percentage, tourist trap pricing)<br>
+                <strong>Be cautious:</strong> Random Marrakech souk shops (mixed quality, hard to verify)<br>
+                <strong>Skip:</strong> High-pressure sellers or anywhere you feel rushed</p>
+            </div>
+        </section>
+
+        <!-- Photo Placeholder 1 -->
+        <div class="photo-placeholder">
+            📸 PHOTO: Fossil shop exterior in Erfoud<br>
+            (Add your photo here after the trip!)
+        </div>
+
+        <!-- What to Buy -->
+        <section class="content-section">
+            <p class="subtitle">Shopping Guide</p>
+            <h2>What to Buy (& Prices)</h2>
+
+            <h3>Best Souvenirs for Beginners</h3>
+
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Description</th>
+                        <th>Price Range</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Orthoceras Pendant</strong></td>
+                        <td>Small fossil on necklace/keychain</td>
+                        <td>£5-15</td>
+                        <td>Wearable, hard to fake, great gift</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Small Ammonite</strong></td>
+                        <td>2-5cm spiral shell</td>
+                        <td>£10-30</td>
+                        <td>Classic display piece</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Simple Trilobite</strong></td>
+                        <td>Common species, well-prepared</td>
+                        <td>£30-100</td>
+                        <td>Iconic fossil, conversation starter</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fossil Bowl/Plate</strong></td>
+                        <td>Functional art with embedded fossils</td>
+                        <td>£20-80</td>
+                        <td>Practical + beautiful</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Orthoceras Wall Slab</strong></td>
+                        <td>Polished black marble with fossils</td>
+                        <td>£60-250</td>
+                        <td>Wall art (see below!)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Agoudal Meteorite</strong></td>
+                        <td>Small iron meteorite fragment</td>
+                        <td>£30-150</td>
+                        <td>Actual space rock from Morocco!</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="success-box">
+                <h4>💡 Recommended Budget: £60-200</h4>
+                <p><strong>Starter Collection:</strong><br>
+                1× Small trilobite (£40) + 1× Orthoceras pendant (£10) + 1× Fossil bowl (£30) = <strong>£80 total</strong></p>
+                
+                <p style="margin-top: 1rem;"><strong>Wall Display Collection:</strong><br>
+                1× Medium orthoceras wall slab (£90) + 1× Small ammonite (£20) + 1× Meteorite fragment (£60) = <strong>£170 total</strong></p>
+            </div>
+        </section>
+
+        <!-- Spotting Fakes -->
+        <section class="content-section">
+            <p class="subtitle">Authentication</p>
+            <h2>How to Spot Fake Fossils</h2>
+
+            <div class="warning-box">
+                <h4>🚨 The Fake Problem is HUGE</h4>
+                <p>Morocco produces both the world's BEST authentic fossils AND a massive fake industry. Fakes are everywhere, but they're also easy to spot if you know what to look for!</p>
+            </div>
+
+            <h3>The 8 Essential Tests</h3>
+
+            <div class="fossil-grid">
+                <div class="test-card">
+                    <h4>1. The Tooth Test ⭐</h4>
+                    <p><strong>Most Reliable!</strong></p>
+                    <p><strong>How:</strong> Gently tap fossil on your front teeth<br>
+                    <strong>Real:</strong> Hard like stone, solid feel<br>
+                    <strong>Fake:</strong> Soft like plastic, "gives" slightly<br>
+                    <strong>Why:</strong> Resin/plaster much softer than mineralized fossil</p>
+                </div>
+
+                <div class="test-card">
+                    <h4>2. Weight Test</h4>
+                    <p><strong>How:</strong> Pick it up - does it feel as heavy as expected?<br>
+                    <strong>Real:</strong> Heavy, dense, stone-like<br>
+                    <strong>Fake:</strong> Surprisingly light (resin/plaster)</p>
+                </div>
+
+                <div class="test-card">
+                    <h4>3. Look for "The Line"</h4>
+                    <p><strong>Red flag:</strong> Clean separation line around fossil<br>
+                    <strong>Why:</strong> Fakes are molded separately then glued into rock<br>
+                    <strong>Real:</strong> No obvious line, integrated into matrix</p>
+                </div>
+
+                <div class="test-card">
+                    <h4>4. Check for Air Bubbles</h4>
+                    <p><strong>Look at:</strong> Surface of fossil AND surrounding matrix<br>
+                    <strong>Fake giveaway:</strong> Tiny air bubbles (resin casting defect)<br>
+                    <strong>Real:</strong> No bubbles in mineralized stone</p>
+                </div>
+
+                <div class="test-card">
+                    <h4>5. Color Check</h4>
+                    <p><strong>Moroccan trilobites:</strong> Black, dark brown, or olive<br>
+                    <strong>Fake indicators:</strong> Brownish with unnatural shine, too uniform, glossy plastic look</p>
+                </div>
+
+                <div class="test-card">
+                    <h4>6. Detail Inspection</h4>
+                    <p><strong>Real trilobites:</strong> Fine spines, visible eyes, imperfections, natural variations<br>
+                    <strong>Fake:</strong> Too perfect, smooth eyes, "drawn" edges, perfect symmetry</p>
+                </div>
+
+                <div class="test-card">
+                    <h4>7. Price Reality Check</h4>
+                    <p><strong>If too good to be true, it is!</strong><br>
+                    Real spiny trilobites: £1,000-5,000+<br>
+                    Fakes of same: £100-500<br>
+                    Takes 100+ hours to prepare real ones properly!</p>
+                </div>
+
+                <div class="test-card">
+                    <h4>8. Ask the Dealer</h4>
+                    <p><strong>Good question:</strong> "Is this restored?"<br>
+                    <strong>Good dealers:</strong> Explain honestly, show workshop<br>
+                    <strong>Bad dealers:</strong> Get defensive, claim "100% natural, very rare!"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Placeholder 2 -->
+        <div style="margin: var(--space-lg) 0;">
+            <img src="photo_brochure/morocco spiny trilobite.jpg" alt="Authentic Moroccan spiny trilobite" style="width: 100%; max-width: 600px; display: block; margin: 0 auto; border-radius: 8px;">
+        </div>
+
+        <!-- Wall Display Section -->
+        <section class="content-section">
+            <p class="subtitle">Home Display</p>
+            <h2>Wall-Hanging Fossil Art</h2>
+
+            <div class="info-box mb-lg">
+                <h3>🖼️ Perfect Wall-Display Option: Orthoceras Plates</h3>
+                <p><strong>What they are:</strong> Ancient squid-like creatures (350 million years old) embedded in polished black marble slabs, ready to hang on your wall like artwork!</p>
+            </div>
+
+            <h3>Wall-Display Specifications</h3>
+
+            <div class="two-column mb-lg">
+                <div>
+                    <h4>Small (Travel-Friendly)</h4>
+                    <p><strong>Size:</strong> 25 × 35cm<br>
+                    <strong>Thickness:</strong> 1cm<br>
+                    <strong>Weight:</strong> ~1kg<br>
+                    <strong>Price:</strong> £30-50<br>
+                    <strong>Packing:</strong> Fits in suitcase diagonally</p>
+                </div>
+                <div>
+                    <h4>Medium (Recommended)</h4>
+                    <p><strong>Size:</strong> 40 × 60cm (A2 poster size)<br>
+                    <strong>Thickness:</strong> 1.5-2cm<br>
+                    <strong>Weight:</strong> 2-3kg<br>
+                    <strong>Price:</strong> £60-100<br>
+                    <strong>Packing:</strong> Ship it! (£40-50 shipping)</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>How to Mount & Hang</h3>
+                
+                <p><strong>Step 1: Check What's Included</strong><br>
+                Many plates come with hanging wire or D-rings already attached. Ask the shop when buying!</p>
+                
+                <p style="margin-top: 1rem;"><strong>Step 2: If You Need to Add Hardware</strong><br>
+                For 2-3kg plates: Use 2× D-ring hangers screwed into back edges<br>
+                Thread picture wire between them<br>
+                Use standard picture hooks on wall (rated for 5kg+)</p>
+                
+                <p style="margin-top: 1rem;"><strong>Step 3: Wall Mounting</strong><br>
+                Find wall studs for heavy pieces (5kg+)<br>
+                For lighter pieces (2-3kg): Standard picture hooks in drywall are fine<br>
+                Use level to ensure straight hanging<br>
+                Hang at eye level (center of art ~152cm from floor)</p>
+                
+                <p style="margin-top: 1rem;"><strong>Step 4: Care & Cleaning</strong><br>
+                Wipe with damp cloth occasionally<br>
+                Polish with furniture wax for extra shine (optional)<br>
+                Keep away from direct sunlight (can fade over years)</p>
+            </div>
+
+            <div class="success-box">
+                <h4>✨ Why Orthoceras Wall Plates are Brilliant</h4>
+                <p>🎨 Art + science combined<br>
+                🌍 Authentic Moroccan souvenir<br>
+                ⏰ 350 million years old (!)<br>
+                💬 Amazing conversation starter<br>
+                🖼️ No frame needed (polished edges)<br>
+                🪝 Easy to hang (standard hooks)<br>
+                💎 Timeless decor (never goes out of style)<br>
+                🧹 Easy to clean (just wipe)</p>
+            </div>
+
+            <h3>Shipping vs Carrying</h3>
+
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Pros</th>
+                        <th>Cons</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Carry Small Plate</strong></td>
+                        <td>Take home immediately, no shipping wait</td>
+                        <td>Luggage space, breakage risk, weight limit</td>
+                        <td>£0 extra</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ship Medium/Large</strong></td>
+                        <td>No luggage hassle, fully insured, arrives safely</td>
+                        <td>2-4 week wait, shipping cost</td>
+                        <td>£40-80</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 1rem; font-size: 0.875rem;"><strong>Note:</strong> Fossil shops ship worldwide routinely. They pack professionally with bubble wrap, foam, and sturdy boxes. Fully insured shipments.</p>
+        </section>
+
+        <!-- Meteorites -->
+        <section class="content-section">
+            <p class="subtitle">From Space!</p>
+            <h2>Agoudal Iron Meteorites</h2>
+
+            <div class="info-box">
+                <h3>🌠 What Are They?</h3>
+                <p><strong>Real meteorites from space</strong> found in the High Atlas Mountains near Agoudal village (Morocco's highest village at 2,300m altitude!)</p>
+                
+                <p style="margin-top: 1rem;"><strong>Age:</strong> 40,000+ years old<br>
+                <strong>Composition:</strong> Iron-nickel (5.5% nickel, 4.1 mg/g cobalt)<br>
+                <strong>Classification:</strong> IIAB Iron (hexahedrite)<br>
+                <strong>Discovery:</strong> 2000 (initially sold to tourists unknowingly!), recognized in 2011<br>
+                <strong>Impact site:</strong> Created 3km crater + shatter cones (now eroded)</p>
+            </div>
+
+            <h3>Meteorite Buying Guide</h3>
+
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Size</th>
+                        <th>Weight</th>
+                        <th>Price Range</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Small fragment</td>
+                        <td>1-10 grams</td>
+                        <td>£15-60</td>
+                        <td>Starter collectors, gifts</td>
+                    </tr>
+                    <tr>
+                        <td>Medium piece</td>
+                        <td>10-40 grams</td>
+                        <td>£60-150</td>
+                        <td>Display specimens</td>
+                    </tr>
+                    <tr>
+                        <td>Large specimen</td>
+                        <td>40-100+ grams</td>
+                        <td>£150-380+</td>
+                        <td>Serious collectors</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>How to Verify Authentic Meteorites</h3>
+
+            <div class="fossil-grid">
+                <div class="test-card">
+                    <h4>1. Magnet Test ⭐</h4>
+                    <p><strong>Real:</strong> VERY strongly magnetic (it's iron!)<br>
+                    <strong>Fake:</strong> Not magnetic or weakly magnetic</p>
+                </div>
+
+                <div class="test-card">
+                    <h4>2. Weight Test</h4>
+                    <p><strong>Real:</strong> VERY heavy for size (dense iron-nickel)<br>
+                    <strong>Fake:</strong> Lighter (terrestrial rock or composite)</p>
+                </div>
+
+                <div class="test-card">
+                    <h4>3. Appearance</h4>
+                    <p><strong>Real:</strong> Natural patina, irregular shape, thumbprint depressions<br>
+                    <strong>Fake:</strong> Too perfect, painted, suspiciously symmetrical</p>
+                </div>
+
+                <div class="test-card">
+                    <h4>4. Documentation</h4>
+                    <p><strong>Always ask for:</strong> Certificate of authenticity stating "Agoudal (Imilchil), IIAB Iron, Morocco"</p>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ What About Tektites (Impact Glass Spheres)?</h4>
+                <p>You may see dark black spherical "balls" (~3cm) sold in shops. These are <strong>Indochinite tektites from Vietnam</strong>, NOT from Morocco! They're legitimate impact glass (700,000 years old, formed by meteorite impact in Southeast Asia), but they're imported to Morocco for tourist trade. If you want something actually FROM Morocco, stick with Agoudal meteorites or fossils!</p>
+            </div>
+        </section>
+
+        <!-- Shopping Strategy -->
+        <section class="content-section">
+            <p class="subtitle">Pro Tips</p>
+            <h2>Your Shopping Strategy</h2>
+
+            <div class="highlight-box">
+                <h3>Day 5 (April 3) - Fossil Shopping Plan</h3>
+                
+                <p><strong>09:30</strong> - Depart Merzouga<br>
+                <strong>10:30-11:30</strong> - <strong>STOP: Rissani - Mezane Fossil Store</strong></p>
+                
+                <p style="margin-top: 1rem;"><strong>Spend 45-60 minutes:</strong></p>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Watch fossil preparation demonstration (5-10 min)</li>
+                    <li>Browse selection (15-20 min)</li>
+                    <li>Test potential purchases (tooth test, weight, inspection) (10 min)</li>
+                    <li>Negotiate prices (start at 50% of asking) (10 min)</li>
+                    <li>Complete purchase + arrange shipping if needed (10 min)</li>
+                </ul>
+                
+                <p style="margin-top: 1rem;"><strong>Optional:</strong> Continue 45 min to Erfoud for more selection (adds 1.5 hours total)</p>
+            </div>
+
+            <h3>Negotiation Tips</h3>
+
+            <div class="two-column">
+                <div class="info-box">
+                    <h4>DO:</h4>
+                    <p>✅ Start at 50% of asking price<br>
+                    ✅ Be friendly and respectful<br>
+                    ✅ Ask about restoration honestly<br>
+                    ✅ Take your time, don't rush<br>
+                    ✅ Buy multiple items for better deal<br>
+                    ✅ Ask about shipping/packaging</p>
+                </div>
+                <div class="info-box">
+                    <h4>DON'T:</h4>
+                    <p>❌ Accept first price<br>
+                    ❌ Feel pressured to buy<br>
+                    ❌ Skip authenticity tests<br>
+                    ❌ Buy from random roadside stalls<br>
+                    ❌ Forget to get certificate<br>
+                    ❌ Buy "investment pieces" impulsively</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bringing Home -->
+        <section class="content-section">
+            <p class="subtitle">Customs & Transport</p>
+            <h2>Bringing Fossils to UK</h2>
+
+            <div class="success-box">
+                <h4>✅ UK Customs Allowances</h4>
+                <p><strong>Fossils:</strong> Generally allowed (not CITES protected)<br>
+                <strong>Meteorites:</strong> Allowed (not restricted)<br>
+                <strong>Declaration:</strong> Required if total value >£390<br>
+                <strong>Documentation:</strong> Keep all receipts and certificates</p>
+            </div>
+
+            <h3>Packing Tips</h3>
+
+            <div class="fossil-grid">
+                <div class="info-box">
+                    <h4>Small Fossils/Pendants</h4>
+                    <p>✅ Carry-on or checked luggage<br>
+                    Wrap in tissue/bubble wrap<br>
+                    Place in sturdy box<br>
+                    Pack in center of suitcase</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Medium Specimens</h4>
+                    <p>✅ Checked luggage only<br>
+                    Wrap in bubble wrap THEN clothing<br>
+                    Center of suitcase (cushioned)<br>
+                    Mark "FRAGILE" if possible</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Wall Plates/Large Items</h4>
+                    <p>✅ SHIP IT!<br>
+                    Shop arranges professional packing<br>
+                    Fully insured<br>
+                    Arrives 2-4 weeks<br>
+                    Cost: £40-80</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Recommendations -->
+        <section class="content-section">
+            <p class="subtitle">Final Tips</p>
+            <h2>Our Recommended Collection</h2>
+
+            <div class="highlight-box">
+                <h3>🎯 Perfect Morocco Fossil Collection (£150-250 budget)</h3>
+                
+                <p><strong>For Display:</strong><br>
+                1× Medium orthoceras wall plate (40×60cm) - <strong>£90 + £40 shipping = £130</strong><br>
+                → Ships home, arrives 3 weeks later, ready to hang</p>
+                
+                <p style="margin-top: 1rem;"><strong>For Collection:</strong><br>
+                1× Nice trilobite specimen (5-8cm) - <strong>£50</strong><br>
+                → Pack in luggage, display on shelf</p>
+                
+                <p style="margin-top: 1rem;"><strong>For Gifts:</strong><br>
+                2× Orthoceras pendants - <strong>£20</strong><br>
+                → Easy to pack, unique gifts</p>
+                
+                <p style="margin-top: 1rem;"><strong>From Space:</strong><br>
+                1× Small Agoudal meteorite (10-20g) - <strong>£50</strong><br>
+                → Actual space rock from Morocco!</p>
+                
+                <p style="margin-top: 1.5rem; font-weight: 600; color: var(--terracotta);"><strong>TOTAL: £250</strong></p>
+                
+                <p style="margin-top: 1rem;">Result: Wall art, shelf displays, unique gifts, and actual pieces of space = Complete ancient history collection!</p>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="page-nav">
+            <a href="index.html">← Back to Home</a>
+            <a href="journey.html">See The Journey →</a>
+        </nav>
+    </div>
+
+    <footer>
+        <p>Our Morocco Adventure • March 30 - April 9, 2026</p>
+        <p style="margin-top: 0.5rem; font-size: 0.875rem;">Fossil Guide • Updated Feb 15, 2026</p>
+    </footer>
+</body>
+</html>

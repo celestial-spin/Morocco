@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morocco Trip - Daily Guide (Condensed)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .day-block {
+            background: var(--cream);
+            padding: var(--space-md);
+            margin-bottom: var(--space-md);
+            border-left: 4px solid var(--terracotta);
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+        
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .day-number {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--terracotta);
+        }
+        
+        .day-date {
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            color: var(--deep-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .time-block {
+            margin: var(--space-sm) 0;
+        }
+        
+        .time-label {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--terracotta);
+            margin-bottom: 0.25rem;
+        }
+        
+        .quick-ref {
+            background: var(--deep-blue);
+            color: var(--warm-white);
+            padding: var(--space-sm);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            margin-top: var(--space-sm);
+        }
+        
+        @media print {
+            nav, .page-nav, footer { display: none !important; }
+            .container { max-width: 100%; padding: 0.5in; }
+            body { font-size: 10pt; line-height: 1.4; }
+            h1 { font-size: 18pt; page-break-after: avoid; }
+            h2 { font-size: 14pt; page-break-after: avoid; }
+            h3 { font-size: 11pt; }
+            .day-block { page-break-inside: avoid; margin-bottom: 0.5rem; padding: 0.5rem; }
+            .section { page-break-before: always; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Morocco 2026</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="itinerary-daily.html" class="active">Daily Guide</a></li>
+                <li><a href="itinerary-summary.html">Summary</a></li>
+                <li><a href="journey.html">Journey</a></li>
+                <li><a href="fossils.html">Fossils</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="page-header-background" style="background: linear-gradient(135deg, #7A895B 0%, #D4A574 100%);">
+        </div>
+        <div class="page-header-content">
+            <p class="subtitle">Print & Take This One!</p>
+            <h1>Morocco Daily Guide</h1>
+            <p class="lead-text">10 nights • March 30 - April 9, 2026</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Introduction -->
+        <section class="content-section">
+            <div class="highlight-box">
+                <h3>📱 Perfect for the Trip</h3>
+                <p><strong>This condensed guide is designed to be printed and taken with you.</strong> It includes:</p>
+                <p>✅ Day-by-day schedule with morning/afternoon/evening plans<br>
+                ✅ Where you're staying each night (with booking refs)<br>
+                ✅ Driving details and key timings<br>
+                ✅ Essential contacts and packing reminders<br>
+                ✅ Estimated 10-12 printed pages</p>
+                
+                <p><strong>To print:</strong> Use Ctrl+P / Cmd+P. Navigation will hide automatically.</p>
+            </div>
+        </section>
+
+        <!-- Quick Flight Reference -->
+        <section class="content-section section">
+            <p class="subtitle">Quick Reference</p>
+            <h2>Flights & Key Contacts</h2>
+            
+            <div class="two-column mb-lg">
+                <div class="info-box">
+                    <h3>✈️ Outbound</h3>
+                    <p><strong>Sun Mar 30</strong><br>
+                    Jet2 LS1725<br>
+                    MAN 15:35 → RAK 19:15<br>
+                    Ref: 3368PG</p>
+                </div>
+                <div class="info-box">
+                    <h3>✈️ Return</h3>
+                    <p><strong>Thu Apr 9</strong><br>
+                    Ryanair RK1265<br>
+                    AGA 11:05 → MAN 15:00<br>
+                    Ref: QVFRPM</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>🚗 Car Rental</h3>
+                <p><strong>Pickup:</strong> Tue Apr 1, 8:30am (FREE delivery to Riad Pachavana)<br>
+                <strong>Dropoff:</strong> Sun Apr 6, Agadir city center<br>
+                <strong>Company:</strong> [Saad/MarHire/Medloc - to be booked]<br>
+                <strong>Duration:</strong> 6 days</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>📞 Emergency</h3>
+                <p><strong>Morocco Police:</strong> 19<br>
+                <strong>Ambulance:</strong> 15<br>
+                <strong>British Embassy:</strong> +212 (0)537 633333<br>
+                <strong>Hyatt Taghazout:</strong> 00 212 528 381234</p>
+            </div>
+        </section>
+
+        <!-- Day by Day -->
+        <section class="content-section section">
+            <p class="subtitle">Daily Schedule</p>
+            <h2>Day-by-Day Guide</h2>
+
+            <!-- DAY 1 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <span class="day-number">Day 1</span>
+                    <span class="day-date">Sunday, March 30</span>
+                </div>
+                <h3>Arrival in Marrakech</h3>
+                
+                <div class="time-block">
+                    <div class="time-label">Evening</div>
+                    <p>15:35 Depart Manchester • 19:15 Arrive Marrakech<br>
+                    20:45 Check in Riad Pachavana • 21:15 Late dinner at riad</p>
+                </div>
+                
+                <div class="quick-ref">
+                    <strong>Staying:</strong> Riad Pachavana (£275 / 2 nights)<br>
+                    <strong>Driving:</strong> None<br>
+                    <strong>Notes:</strong> Late arrival, keep it simple, early night
+                </div>
+            </div>
+
+            <!-- DAY 2 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <span class="day-number">Day 2</span>
+                    <span class="day-date">Monday, March 31</span>
+                </div>
+                <h3>Marrakech Exploration</h3>
+                
+                <div class="time-block">
+                    <div class="time-label">Morning</div>
+                    <p>9:00 Breakfast • 10:00 Koutoubia Mosque • 10:30 Bahia Palace • 12:00 Souks</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Afternoon</div>
+                    <p>14:00 Majorelle Garden (optional) • 17:00 Rest at riad</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Evening</div>
+                    <p>19:00 Dinner • 21:00 Jemaa el-Fnaa square • 22:00 Pack for tomorrow</p>
+                </div>
+                
+                <div class="quick-ref">
+                    <strong>Staying:</strong> Riad Pachavana<br>
+                    <strong>Driving:</strong> None<br>
+                    <strong>Notes:</strong> Only full day in Marrakech - prioritize souks & Jemaa el-Fnaa
+                </div>
+            </div>
+
+            <!-- DAY 3 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <span class="day-number">Day 3</span>
+                    <span class="day-date">Tuesday, April 1</span>
+                </div>
+                <h3>Marrakech → Todra Gorge</h3>
+                
+                <div class="time-block">
+                    <div class="time-label">Morning</div>
+                    <p>7:30 Breakfast • 8:30 Car delivery (WhatsApp coordination) • 9:00 Depart Marrakech</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Drive (365km, ~6h + lunch)</div>
+                    <p>9:00-11:00 → Tizi n'Tichka Pass (2,260m altitude)<br>
+                    11:00 Coffee stop at pass summit<br>
+                    11:30-12:30 → Aït Benhaddou<br>
+                    <strong>12:30-14:00 LUNCH at Aït Benhaddou</strong> (Restaurant Maktoub or Chez Brahim) + explore UNESCO kasbah<br>
+                    14:00-17:30 → Todra Gorge via Dades Valley</p>
+                </div>
+
+                <div class="time-block">
+                    <div class="time-label">Afternoon/Evening</div>
+                    <p>17:30 Check in Hotel AZUL • 18:00 Walk Todra Gorge (1-2h in evening light) • 20:00 Dinner at hotel</p>
+                </div>
+
+                <div class="quick-ref">
+                    <strong>Staying:</strong> Hotel AZUL (£37)<br>
+                    <strong>Driving:</strong> 365km (~6h + lunch at Aït Benhaddou) - Longest drive of trip<br>
+                    <strong>Lunch:</strong> Aït Benhaddou - Restaurant Maktoub (rooftop kasbah views)<br>
+                    <strong>Notes:</strong> Fuel up in Marrakech, slow on hairpins, Aït Benhaddou is a must-see!
+                </div>
+            </div>
+
+            <!-- DAY 4 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <span class="day-number">Day 4</span>
+                    <span class="day-date">Wednesday, April 2</span>
+                </div>
+                <h3>Todra Gorge → Merzouga Desert</h3>
+                
+                <div class="time-block">
+                    <div class="time-label">Morning</div>
+                    <p>8:00 Breakfast • 9:00 Optional short gorge walk • 10:00 Depart</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Drive (160km, 2.5h)</div>
+                    <p>10:00-12:30 → Merzouga (via Tinejdad palm groves)</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Afternoon/Evening</div>
+                    <p>13:00 Arrive Merzouga, lunch in town<br>
+                    15:00-16:00 Desert transfer (camel OR 4x4 to camp)<br>
+                    17:30 Sunset over dunes<br>
+                    19:00 Traditional dinner<br>
+                    20:30 <strong>Berber music around campfire</strong><br>
+                    23:00 Sleep under stars</p>
+                </div>
+                
+                <div class="quick-ref">
+                    <strong>Staying:</strong> Luxury Desert Camp (£175-£195)<br>
+                    <strong>Driving:</strong> 160km (2.5h)<br>
+                    <strong>Notes:</strong> THE desert experience! Pack warm layer, headtorch. Leave main luggage in car.
+                </div>
+            </div>
+
+            <!-- DAY 5 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <span class="day-number">Day 5</span>
+                    <span class="day-date">Thursday, April 3</span>
+                </div>
+                <h3>Desert → N'kob (via Fossil Shopping!)</h3>
+                
+                <div class="time-block">
+                    <div class="time-label">Morning</div>
+                    <p>6:30 Wake for sunrise (optional but recommended!)<br>
+                    7:30 Breakfast • 8:30 Camel/4x4 back to Merzouga • 9:30 Reload car • 10:00 Depart</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Drive Section 1 (35km, 30min)</div>
+                    <p>10:00-10:30 → Rissani<br>
+                    <strong>10:30-11:30 FOSSIL SHOPPING: Mezane Fossil Store</strong><br>
+                    • On main road between Erfoud/Rissani (directly on route!)<br>
+                    • Family business, fair prices, workshop tour<br>
+                    • Browse fossils, trilobites, meteorites (see <em>Fossils Guide</em>)<br>
+                    • Budget: £60-150 for nice souvenirs</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Lunch Stop</div>
+                    <p><strong>11:30-12:30 Lunch in Rissani</strong><br>
+                    <strong>Option 1: Café Restaurant Amraoui</strong> (Recommended!)<br>
+                    • Location: Just outside Rissani center (on route)<br>
+                    • Famous for: Madfouna (Berber pizza - local specialty!)<br>
+                    • Also good: Kefta tagine, Moroccan salads<br>
+                    • Price: ~85 MAD (£7) per person<br>
+                    • English-speaking, tourist-friendly<br><br>
+                    <strong>Option 2: Quick snacks/picnic supplies in Rissani</strong><br>
+                    • Buy fresh bread, cheese, olives, fruit<br>
+                    • Eat scenic picnic stop later (palmeries en route)<br>
+                    • Saves time, more flexible</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Optional Museum Visit</div>
+                    <p><strong>If time permits: Tahiri Fossil Museum</strong><br>
+                    • Location: 11km north on Erfoud-Rissani road (15 min each way)<br>
+                    • Hours: 7am-sunset daily • Entry: FREE (donations welcome)<br>
+                    • Duration: 30-45 min visit • Giant dinosaur replicas outside!<br>
+                    • Total time addition: +1.5 hours (30min drive + 45min visit)<br>
+                    • <em>Only add if ahead of schedule - pool time is priority!</em></p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Drive Section 2 (245km, 3.5h)</div>
+                    <p>12:30-16:00 → N'kob (via Tazzarine)<br>
+                    Remote scenic route through palmeries & Jbel Saghro mountains<br>
+                    <em>Note: Very limited food stops between Rissani and N'kob - eat lunch in Rissani!</em></p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Afternoon/Evening</div>
+                    <p>16:00 Check in Kasbah Ait Omar • 16:30 <strong>POOL TIME!</strong><br>
+                    18:00 Village walk (45 kasbahs) • 19:30 Dinner at kasbah • 21:30 Early night</p>
+                </div>
+                
+                <div class="quick-ref">
+                    <strong>Staying:</strong> Kasbah Ait Omar (£60-£80) • Ref: 5078216590<br>
+                    <strong>Driving:</strong> 280km (4h drive + 1h shopping + 1h lunch) = 6h total<br>
+                    <strong>Shopping Stop:</strong> Mezane Fossil Store, Rissani (10:30-11:30am)<br>
+                    <strong>Lunch:</strong> Café Restaurant Amraoui, Rissani - Try the Madfouna!<br>
+                    <strong>Optional:</strong> Tahiri Museum (+1.5h if time permits)<br>
+                    <strong>Notes:</strong> Recovery day! Pool essential. Remote route after Rissani - eat lunch there!
+                </div>
+            </div>
+
+            <!-- DAY 6 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <span class="day-number">Day 6</span>
+                    <span class="day-date">Friday, April 4</span>
+                </div>
+                <h3>N'kob → Taroudant</h3>
+                
+                <div class="time-block">
+                    <div class="time-label">Morning</div>
+                    <p>8:00 Breakfast • 9:30 Depart</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Drive (280km, 4-5h)</div>
+                    <p>9:30-14:30 → Taroudant (via Drâa Valley, Anti-Atlas)<br>
+                    Watch for goats in argan trees!<br>
+                    12:00 Lunch stop or packed snacks</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Afternoon/Evening</div>
+                    <p>14:30 Arrive Taroudant • 15:00 Check in Palais Oumensour<br>
+                    15:30 Pool time • 17:00 Short walk to Arab Souk<br>
+                    19:30 Dinner at riad (on-site restaurant) • 21:00 Ask about Berber music</p>
+                </div>
+                
+                <div class="quick-ref">
+                    <strong>Staying:</strong> Palais Oumensour (£174.66 / 2 nights) • Ref: 49SYB794U5<br>
+                    <strong>Driving:</strong> 280km (4-5h)<br>
+                    <strong>Notes:</strong> Keep first evening relaxed. Ask property about arranging Berber music.
+                </div>
+            </div>
+
+            <!-- DAY 7 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <span class="day-number">Day 7</span>
+                    <span class="day-date">Saturday, April 5</span>
+                </div>
+                <h3>Taroudant Full Day</h3>
+                
+                <div class="time-block">
+                    <div class="time-label">Morning</div>
+                    <p>8:00 Breakfast on rooftop terrace • 9:00 Walk/bike the ramparts (6km)<br>
+                    11:00 Explore Arab Souk • 12:00 Visit Berber Souk</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Afternoon</div>
+                    <p>14:00 Pool time / rest • 16:00 Place Assarag square (street musicians)<br>
+                    17:30 Sunset from ramparts</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Evening</div>
+                    <p>19:30 <strong>Special Dinner:</strong> Dar Zitoune (+212 528 551 141) OR Les Jardins de Taroudant<br>
+                    <em>OR</em> Stay at riad for relaxed evening<br>
+                    22:30 Possible Berber music (if arranged)</p>
+                </div>
+                
+                <div class="quick-ref">
+                    <strong>Staying:</strong> Palais Oumensour<br>
+                    <strong>Driving:</strong> None - REST DAY<br>
+                    <strong>Notes:</strong> Book restaurant if going out. Full medina cultural day.
+                </div>
+            </div>
+
+            <!-- DAY 8 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <span class="day-number">Day 8</span>
+                    <span class="day-date">Sunday, April 6</span>
+                </div>
+                <h3>Taroudant → Taghazout</h3>
+                
+                <div class="time-block">
+                    <div class="time-label">Morning</div>
+                    <p>8:00 Breakfast • 9:00 Check out • 9:30 Depart</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Drive + Car Dropoff (85km, 1.5h)</div>
+                    <p>9:30-11:00 → Agadir city center (mountains to coast!)<br>
+                    11:00-11:30 <strong>Drop rental car</strong> (WhatsApp coordination)<br>
+                    11:30-12:00 Taxi Agadir → Taghazout (~£15-20)</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Afternoon/Evening</div>
+                    <p>12:00 Check in Hyatt Regency • 12:30 Lunch at hotel<br>
+                    14:00 POOL! Finally car-free!<br>
+                    15:00 Beach walk • 17:00 Spa (optional)<br>
+                    20:00 Dinner at hotel or village</p>
+                </div>
+                
+                <div class="quick-ref">
+                    <strong>Staying:</strong> Hyatt Regency (£176 night 1) • Booking 1 of 2<br>
+                    <strong>Driving:</strong> 85km (1.5h) then DROP CAR<br>
+                    <strong>Notes:</strong> Car rental ends. No more driving! 3 days beach relaxation ahead.
+                </div>
+            </div>
+
+            <!-- DAY 9 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <span class="day-number">Day 9</span>
+                    <span class="day-date">Monday, April 7</span>
+                </div>
+                <h3>Taghazout Beach Day 1</h3>
+                
+                <div class="time-block">
+                    <div class="time-label">Morning</div>
+                    <p>7:30-8:30 <strong>PHIL: GYM SESSION #1</strong> (Peloton bikes, weights)<br>
+                    9:00 Shower, breakfast • 10:00 Pool time</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Midday/Afternoon</div>
+                    <p>12:00 Lunch • 13:00 Beach time • 15:00 Spa/hammam (optional) • 17:00 Pool</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Evening</div>
+                    <p>18:30 Sunset from terrace • 20:00 Dinner (hotel or village)</p>
+                </div>
+                
+                <div class="quick-ref">
+                    <strong>Staying:</strong> Hyatt Regency (£178.50 / night, 2-night booking) • Booking 2 of 2<br>
+                    <strong>Driving:</strong> None - BEACH DAY<br>
+                    <strong>Notes:</strong> Zero agenda. Complete relaxation mode.
+                </div>
+            </div>
+
+            <!-- DAY 10 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <span class="day-number">Day 10</span>
+                    <span class="day-date">Tuesday, April 8</span>
+                </div>
+                <h3>Taghazout Beach Day 2</h3>
+                
+                <div class="time-block">
+                    <div class="time-label">Morning</div>
+                    <p>7:30-8:30 <strong>PHIL: GYM SESSION #2</strong> (Mission accomplished!)<br>
+                    9:00 Shower, breakfast • 10:00 Pool or beach</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Midday/Afternoon</div>
+                    <p>12:00 Lunch • 13:00 Final beach time • 15:00 <strong>PACK BAGS</strong><br>
+                    16:00 Final pool session • 17:00 Sunset cocktail</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Evening</div>
+                    <p>19:30 Final dinner • 21:00 Final beach walk<br>
+                    22:00 <strong>Pack completely, prepare for 7:30am shuttle</strong><br>
+                    23:00 Early sleep</p>
+                </div>
+                
+                <div class="quick-ref">
+                    <strong>Staying:</strong> Hyatt Regency<br>
+                    <strong>Driving:</strong> None - FINAL BEACH DAY<br>
+                    <strong>Notes:</strong> Last full day in Morocco. Pack tonight! Confirm shuttle with front desk.
+                </div>
+            </div>
+
+            <!-- DAY 11 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <span class="day-number">Day 11</span>
+                    <span class="day-date">Wednesday, April 9</span>
+                </div>
+                <h3>Departure Day</h3>
+                
+                <div class="time-block">
+                    <div class="time-label">Morning</div>
+                    <p>6:00 Wake • 6:30 Quick breakfast or grab-and-go<br>
+                    7:00 Check out • 7:30 Hyatt shuttle departs for Agadir Airport<br>
+                    8:10 Arrive airport • 8:30 Check in Ryanair<br>
+                    9:30 Breakfast in departures • 11:05 Depart Agadir</p>
+                </div>
+                
+                <div class="time-block">
+                    <div class="time-label">Return Journey</div>
+                    <p>11:05 Depart Agadir • 15:00 Arrive Manchester<br>
+                    15:30 Collect baggage • 16:00 HOME!</p>
+                </div>
+                
+                <div class="quick-ref">
+                    <strong>Flight:</strong> Ryanair RK1265, AGA→MAN, Ref: QVFRPM<br>
+                    <strong>Shuttle:</strong> FREE Hyatt airport transfer (7:30am)<br>
+                    <strong>Notes:</strong> Passports: Phil 555****62, Steph 555****82
+                </div>
+            </div>
+        </section>
+
+        <!-- Packing List -->
+        <section class="content-section section">
+            <p class="subtitle">Don't Forget</p>
+            <h2>Essential Packing List</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>📄 Documents</h3>
+                    <p>✓ Passports (6 months validity)<br>
+                    ✓ Flight confirmations (printed + digital)<br>
+                    ✓ Accommodation confirmations<br>
+                    ✓ Car rental booking<br>
+                    ✓ Travel insurance<br>
+                    ✓ Driving licenses<br>
+                    ✓ Cash (£100-200 for Dirhams)</p>
+                    
+                    <h3 class="mt-lg">👕 Clothing (April: 22-28°C days)</h3>
+                    <p>✓ 5-6 t-shirts/tops<br>
+                    ✓ 2-3 shorts, 2-3 light trousers<br>
+                    ✓ Fleece (desert nights ~10°C)<br>
+                    ✓ Swimwear (5 pool locations!)<br>
+                    ✓ Walking shoes, sandals<br>
+                    ✓ Sun hat, sunglasses<br>
+                    ✓ Modest clothing for medinas</p>
+                </div>
+                <div>
+                    <h3>💪 Phil's Gym Gear</h3>
+                    <p>✓ 2x gym shorts<br>
+                    ✓ 2x gym t-shirts<br>
+                    ✓ Trainers<br>
+                    (For Hyatt sessions Days 9 & 10)</p>
+                    
+                    <h3 class="mt-lg">🧴 Toiletries & Extras</h3>
+                    <p>✓ Sun cream SPF 50<br>
+                    ✓ After-sun lotion<br>
+                    ✓ Medications, first aid kit<br>
+                    ✓ Hand sanitizer<br>
+                    ✓ Phone chargers, power bank<br>
+                    ✓ UK→EU adapter (Type C)<br>
+                    ✓ Headtorch (for desert night)<br>
+                    ✓ Reusable water bottles<br>
+                    ✓ Day backpack<br>
+                    ✓ Camera + memory cards</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Budget Summary -->
+        <section class="content-section">
+            <p class="subtitle">Financial Summary</p>
+            <h2>Trip Budget</h2>
+            
+            <table style="width: 100%; font-size: 0.875rem; margin: 1rem 0;">
+                <tr style="background: var(--deep-blue); color: var(--warm-white);">
+                    <th style="padding: 0.5rem; text-align: left;">Item</th>
+                    <th style="padding: 0.5rem; text-align: right;">Cost</th>
+                    <th style="padding: 0.5rem;">Status</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem;">Flights (2 pax, return)</td>
+                    <td style="padding: 0.5rem; text-align: right;">£900</td>
+                    <td style="padding: 0.5rem;">✅ PAID</td>
+                </tr>
+                <tr style="background: var(--cream);">
+                    <td style="padding: 0.5rem;">All Accommodation (10 nights)</td>
+                    <td style="padding: 0.5rem; text-align: right;">£1,255-£1,295</td>
+                    <td style="padding: 0.5rem;">✅ BOOKED</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem;">Car Rental (6 days)</td>
+                    <td style="padding: 0.5rem; text-align: right;">£350-£450</td>
+                    <td style="padding: 0.5rem;">🟡 TO BOOK</td>
+                </tr>
+                <tr style="background: var(--cream);">
+                    <td style="padding: 0.5rem;">Travel Insurance</td>
+                    <td style="padding: 0.5rem; text-align: right;">£80-£150</td>
+                    <td style="padding: 0.5rem;">🟡 TO BOOK</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem;">Food & Activities</td>
+                    <td style="padding: 0.5rem; text-align: right;">£900-£1,700</td>
+                    <td style="padding: 0.5rem;">🟢 Variable</td>
+                </tr>
+                <tr style="background: var(--deep-blue); color: var(--warm-white); font-weight: 600;">
+                    <td style="padding: 0.5rem;">TOTAL</td>
+                    <td style="padding: 0.5rem; text-align: right;">£3,385-£4,195</td>
+                    <td style="padding: 0.5rem;">-</td>
+                </tr>
+            </table>
+            
+            <p style="font-size: 0.875rem; margin-top: 1rem;"><strong>Original Budget:</strong> £2,800-£3,800<br>
+            <strong>Status:</strong> Slightly over but manageable with careful spending</p>
+        </section>
+
+        <!-- Success Criteria -->
+        <section class="content-section">
+            <div class="info-box">
+                <h3>🎯 Trip Success = Achieved When:</h3>
+                <p>✅ Phil gets TWO gym sessions (Taghazout Apr 7 & 8)<br>
+                ✅ Desert camp is magical (Berber music, stars, sunset)<br>
+                ✅ Recovery time adequate (pools, rest days)<br>
+                ✅ Driving manageable (longest 5.5h, 5 rest days)<br>
+                ✅ Cultural experiences (Marrakech, Berber music, Taroudant)<br>
+                ✅ Beach relaxation (3 nights Taghazout)<br>
+                ✅ Budget controlled (careful spending)<br>
+                ✅ <strong>Both return happy, refreshed, with great memories!</strong></p>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="page-nav">
+            <a href="index.html">← Back to Home</a>
+            <a href="itinerary-summary.html">Full Detailed Version →</a>
+        </nav>
+    </div>
+
+    <footer>
+        <p>Our Morocco Adventure • March 30 - April 9, 2026</p>
+        <p style="margin-top: 0.5rem; font-size: 0.875rem;">Daily Guide v2.0 • Condensed for easy printing • ~10-12 pages</p>
+    </footer>
+</body>
+</html>
