@@ -299,6 +299,12 @@ nav {
   margin-bottom: var(--space-lg);
 }
 
+.section-header p,
+.section-header .lead-text {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* ============================================
    LOCATION CARDS - Editorial Grid
    ============================================ */
