@@ -246,6 +246,10 @@ nav {
   animation: fadeInUp 1.2s ease-out 0.2s both;
 }
 
+.hero .lead-text {
+  color: var(--warm-white);
+}
+
 .hero-dates {
   font-size: 1.25rem;
   font-weight: 300;
@@ -474,6 +478,10 @@ nav {
   color: var(--warm-white) !important;
 }
 
+.info-box h3 {
+  text-align: center;
+}
+
 .info-box a {
   text-decoration: underline;
 }
@@ -494,6 +502,10 @@ nav {
 .highlight-box strong,
 .highlight-box a {
   color: var(--soft-black) !important;
+}
+
+.highlight-box h3 {
+  text-align: center;
 }
 
 .highlight-box a {
