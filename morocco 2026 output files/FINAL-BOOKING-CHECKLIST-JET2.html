@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morocco Flights - Jet2 Booking Checklist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .trip-summary {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 30px;
+            border-radius: 8px;
+        }
+        
+        .trip-summary h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .trip-summary .route {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        
+        .trip-summary .route .arrow {
+            color: #667eea;
+            font-size: 2em;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin: 30px 0 20px 0;
+            font-size: 2em;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin: 25px 0 15px 0;
+            font-size: 1.5em;
+        }
+        
+        h3 {
+            color: #764ba2;
+            margin: 20px 0 10px 0;
+            font-size: 1.2em;
+        }
+        
+        h4 {
+            color: #555;
+            margin: 15px 0 10px 0;
+            font-size: 1.1em;
+        }
+        
+        p {
+            margin: 10px 0;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        pre code {
+            background: transparent;
+            color: #ecf0f1;
+            padding: 0;
+        }
+        
+        .checkbox {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        .important {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .warning {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .info {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 10px 5px;
+        }
+        
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 3px solid #667eea;
+            margin: 20px 0;
+        }
+        
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+        
+        .flight-card {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .flight-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .cost-box {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .cost-box h3 {
+            color: #2e7d32;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        
+        .cost-box p {
+            color: #558b2f;
+            font-size: 1.2em;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .header {
+                background: #667eea;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .btn {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✈️ Morocco Flight Booking Checklist</h1>
+            <p>Jet2 Both Ways - Complete Guide</p>
+        </div>
+        
+        <div class="trip-summary">
+            <h2>🎯 Your Perfect Trip</h2>
+            <div class="route">
+                <span>Manchester (MAN)</span>
+                <span class="arrow">✈️</span>
+                <span>Marrakech (RAK)</span>
+            </div>
+            <div style="text-align: center; margin: 10px 0;">
+                <strong>Sunday, March 30, 2026</strong>
+            </div>
+            <div style="text-align: center; margin: 20px 0; color: #666;">11 nights in Morocco</div>
+            <div class="route">
+                <span>Agadir (AGA)</span>
+                <span class="arrow">✈️</span>
+                <span>Manchester (MAN)</span>
+            </div>
+            <div style="text-align: center; margin: 10px 0;">
+                <strong>Thursday, April 10, 2026</strong>
+            </div>
+            
+            <div class="cost-box" style="margin-top: 30px;">
+                <h3>Total Estimated Cost</h3>
+                <p><strong>£345-425</strong> (flights + parking)</p>
+                <p style="font-size: 0.9em; color: #666;">Includes 22kg bags for both passengers!</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h1>MOROCCO FLIGHTS - FINAL BOOKING CHECKLIST (JET2)</h1>
+<p><strong>Trip:</strong> Morocco Road Trip<br />
+<strong>Dates:</strong> March 30 - April 10, 2026 (11 nights)<br />
+<strong>Travelers:</strong> 2 people<br />
+<strong>Airline:</strong> Jet2 (BOTH WAYS)<br />
+<strong>Total Cost:</strong> £345-425<br />
+<strong>Created:</strong> February 13, 2026</p>
+<hr />
+<h2>🎯 YOUR PERFECT SOLUTION</h2>
+<p><strong>OUTBOUND:</strong> Sunday, March 30, 2026<br />
+<strong>Jet2 Manchester → Marrakech</strong><br />
+- Bags included (22kg each)
+- Mid-morning departure (~10:52)
+- Afternoon arrival perfect for check-in</p>
+<p><strong>RETURN:</strong> Thursday, April 10, 2026<br />
+<strong>Jet2 Agadir → Manchester</strong><br />
+- Bags included (22kg each)
+- Early afternoon departure (~12:57)
+- Home by early evening</p>
+<p><strong>WHY THIS IS PERFECT:</strong>
+✅ Jet2 both ways (your priority achieved!)<br />
+✅ 11 nights (exactly as planned)<br />
+✅ Bags included (saves £120)<br />
+✅ Best service (8.2/10 rating)<br />
+✅ Within budget (£345-425 vs £455-505 easyJet)<br />
+✅ NO extra accommodation costs  </p>
+<hr />
+<h2>⏰ BOOK WITHIN 24-48 HOURS</h2>
+<p><strong>Why urgent:</strong>
+- 7 weeks out = Optimal booking window
+- Sunday flights popular (weekend departures)
+- Jet2 limited frequency (2x weekly)
+- Prices increase after March 1</p>
+<hr />
+<h2>📍 STEP 1: PRE-BOOKING PREPARATION</h2>
+<h3>☐ <strong>Gather Passenger Information</strong></h3>
+<p>For EACH traveler:
+- [ ] Full name (EXACTLY as on passport)
+- [ ] Date of birth
+- [ ] Passport number
+- [ ] Passport expiry date (must be valid 6+ months after April 10)
+- [ ] Nationality
+- [ ] Contact email
+- [ ] Contact phone number</p>
+<p><strong>CRITICAL:</strong> Name must match passport EXACTLY.</p>
+<hr />
+<h3>☐ <strong>Baggage - Already Sorted!</strong></h3>
+<p><strong>YOUR NEEDS:</strong>
+- 2 checked bags (1 per person)</p>
+<p><strong>JET2 INCLUDES:</strong>
+- ✅ <strong>22kg checked bag per person</strong> (INCLUDED in fare!)
+- ✅ <strong>10kg cabin bag per person</strong> (INCLUDED in fare!)
+- ✅ <strong>Under-seat bag</strong> (handbag/laptop - FREE)</p>
+<p><strong>NOTHING TO ADD - ALL INCLUDED!</strong> 🎉</p>
+<hr />
+<h3>☐ <strong>Payment Method Ready</strong></h3>
+<ul>
+<li>[ ] Credit/debit card with sufficient funds (£400)</li>
+<li>[ ] Card must support 3D Secure</li>
+<li>[ ] Use no-foreign-transaction-fee card if possible</li>
+</ul>
+<hr />
+<h3>☐ <strong>Seating Preferences Decision</strong></h3>
+<p><strong>Standard Seating (FREE):</strong>
+- Jet2 assigns seats automatically
+- Usually seated together for 2 people
+- No extra cost</p>
+<p><strong>Pre-Selected Seats (£6-20 per person per flight):</strong>
+- Choose specific seats
+- Guaranteed together
+- Extra legroom available (~£18-22)</p>
+<p><strong>DECISION:</strong> Pay for seats or accept free allocation?</p>
+<p><strong>Recommendation:</strong> Jet2 is good about seating couples together, probably skip paid seats unless you want extra legroom.</p>
+<hr />
+<h3>☐ <strong>Travel Insurance</strong></h3>
+<ul>
+<li>[ ] Have travel insurance? (Highly recommended)</li>
+<li>[ ] Covers: Cancellation, medical, baggage, delays</li>
+<li>[ ] Policy number recorded</li>
+</ul>
+<p><strong>NOTE:</strong> Jet2 offers insurance at checkout - compare first</p>
+<hr />
+<h2>🔍 STEP 2: BOOK FLIGHTS</h2>
+<h3>☐ <strong>OUTBOUND: Sunday March 30, 2026</strong></h3>
+<p><strong>Website:</strong> https://www.jet2.com/en/cheap-flights/manchester/marrakech</p>
+<p><strong>Search Details:</strong>
+- From: Manchester (MAN)
+- To: Marrakech (RAK)
+- Date: Sunday, March 30, 2026
+- Passengers: 2 adults
+- One way: YES (not return - we're booking 2 singles)</p>
+<p><strong>Expected Price:</strong> £70-90 per person = £140-180 total</p>
+<p><strong>BEFORE CLICKING "BOOK":</strong>
+- [ ] Date correct: Sunday March 30, 2026 ✅
+- [ ] Route correct: Manchester → Marrakech ✅
+- [ ] 2 passengers ✅
+- [ ] Names match passports EXACTLY ✅
+- [ ] Baggage shows INCLUDED (22kg each) ✅
+- [ ] Total price reasonable (£140-180) ✅</p>
+<p><strong>BOOK IT!</strong></p>
+<p><strong>After Booking:</strong>
+- [ ] Screenshot confirmation
+- [ ] Save booking reference: <strong><em>_</em></strong><strong><em>_</em></strong><strong>
+- [ ] Save flight number: <strong><em>_</em></strong><strong><em>_</em></strong></strong>
+- [ ] Confirm email received ✅
+- [ ] Add to calendar</p>
+<hr />
+<h3>☐ <strong>RETURN: Thursday April 10, 2026</strong></h3>
+<p><strong>Website:</strong> https://www.jet2.com/en/cheap-flights/agadir/manchester</p>
+<p><strong>Search Details:</strong>
+- From: Agadir (AGA)
+- To: Manchester (MAN)
+- Date: Thursday, April 10, 2026
+- Passengers: 2 adults
+- One way: YES</p>
+<p><strong>Expected Price:</strong> £70-90 per person = £140-180 total</p>
+<p><strong>BEFORE CLICKING "BOOK":</strong>
+- [ ] Date correct: Thursday April 10, 2026 ✅
+- [ ] Route correct: Agadir → Manchester ✅
+- [ ] 2 passengers ✅
+- [ ] Names match passports EXACTLY ✅
+- [ ] Baggage shows INCLUDED (22kg each) ✅
+- [ ] Total price reasonable (£140-180) ✅</p>
+<p><strong>BOOK IT!</strong></p>
+<p><strong>After Booking:</strong>
+- [ ] Screenshot confirmation
+- [ ] Save booking reference: <strong><em>_</em></strong><strong><em>_</em></strong><strong>
+- [ ] Save flight number: <strong><em>_</em></strong><strong><em>_</em></strong></strong>
+- [ ] Confirm email received ✅
+- [ ] Add to calendar</p>
+<hr />
+<h3>☐ <strong>Total Cost Verification</strong></h3>
+<pre><code>OUTBOUND FLIGHT:              £______
+RETURN FLIGHT:                £______
+                             ────────
+FLIGHTS TOTAL:                £______
+
+Expected: £280-360 ✅
+
+ADDITIONAL COSTS:
+Parking (11 days):            £______
+Fuel (Nottingham-Manchester): £15
+                             ────────
+GRAND TOTAL:                  £______
+
+Expected: £345-425 ✅
+</code></pre>
+<p><strong>Budget Check:</strong>
+- Trip budget: £2,800-3,800
+- Flights + parking: £345-425 (9-15% of budget) ✅✅✅</p>
+<hr />
+<h2>📧 STEP 3: POST-BOOKING (Within 24 Hours)</h2>
+<h3>☐ <strong>Set Up Price Alerts (Monitor for Drops)</strong></h3>
+<p><strong>Set Alerts:</strong>
+1. [ ] Google Flights: Manchester → Marrakech, March 30
+2. [ ] Google Flights: Agadir → Manchester, April 10</p>
+<p><strong>If Price Drops &gt;£30/person:</strong>
+- Check Jet2's change policy
+- May be able to rebook at lower price</p>
+<hr />
+<h3>☐ <strong>24-Hour Cancellation Window</strong></h3>
+<p><strong>You Have 24 Hours to Cancel Free</strong></p>
+<p>Check:
+- [ ] Made mistake in booking?
+- [ ] Found better option?
+- [ ] Need to change dates?</p>
+<p><strong>After 24 hours:</strong> Cancellation fees apply</p>
+<hr />
+<h3>☐ <strong>Download Jet2 App</strong></h3>
+<ul>
+<li>[ ] Download: Jet2 app (iOS/Android)</li>
+<li>[ ] Login with booking email</li>
+<li>[ ] Add both bookings to app</li>
+<li>[ ] Enable notifications</li>
+</ul>
+<p><strong>Benefits:</strong>
+- Check-in from app
+- Flight status updates
+- Boarding passes on phone
+- Easier than website</p>
+<hr />
+<h3>☐ <strong>Create Travel Folder</strong></h3>
+<p>Digital + Physical:
+- [ ] Flight confirmations (PDF + printed)
+- [ ] Booking references written down
+- [ ] Travel insurance details
+- [ ] Passport copies</p>
+<hr />
+<h2>🅿️ STEP 4: BOOK PARKING</h2>
+<h3>☐ <strong>Manchester Airport Parking</strong></h3>
+<p><strong>Duration:</strong> March 30 - April 10 (11 days)</p>
+<p><strong>Recommended: Off-site Park &amp; Ride</strong>
+- Cost: £40-60 for 11 days (CHEAPEST)
+- Shuttle to terminal: 10-15 mins
+- Book at: ParkingAtAirports.co.uk or Manchester Airport website</p>
+<p><strong>Alternative: Meet &amp; Greet</strong>
+- Cost: £60-75
+- Drop car at terminal (valet service)
+- More convenient, slightly pricier</p>
+<p><strong>BOOK NOW (cheaper pre-booked):</strong>
+- [ ] Parking booked: Type <strong><em>_</em></strong><strong><em>_</em></strong><strong>
+- [ ] Confirmation ref: <strong><em>_</em></strong><strong><em>_</em></strong></strong>
+- [ ] Cost: £______
+- [ ] Pre-paid ✅</p>
+<p><strong>Links:</strong>
+- Manchester Airport: https://www.manchesterairport.co.uk/parking/
+- Comparison: https://www.parkingataairports.co.uk</p>
+<hr />
+<h2>📅 STEP 5: ADD TO CALENDAR</h2>
+<h3>☐ <strong>Calendar Entries</strong></h3>
+<p><strong>March 29 (Saturday):</strong>
+- [ ] <strong>18:00:</strong> Check-in opens for tomorrow's flight (24h before)
+- [ ] <strong>19:00:</strong> Check in online, download boarding passes</p>
+<p><strong>March 30 (Sunday - OUTBOUND):</strong>
+- [ ] <strong>04:00:</strong> Wake up
+- [ ] <strong>04:30:</strong> Leave Nottingham for Manchester
+- [ ] <strong>06:00:</strong> Arrive Manchester Airport
+- [ ] <strong>06:30:</strong> Bag drop
+- [ ] <strong>07:00:</strong> Through security
+- [ ] <strong>~08:00:</strong> Boarding
+- [ ] <strong>~10:52:</strong> DEPARTURE (Jet2 to Marrakech)
+- [ ] <strong>~14:40:</strong> ARRIVAL Marrakech (local time = GMT)</p>
+<p><strong>April 9 (Wednesday):</strong>
+- [ ] <strong>18:00:</strong> Check-in opens for tomorrow's return flight
+- [ ] <strong>19:00:</strong> Check in online, download boarding passes</p>
+<p><strong>April 10 (Thursday - RETURN):</strong>
+- [ ] <strong>09:00:</strong> Leave Agadir accommodation
+- [ ] <strong>10:00:</strong> Arrive Agadir Airport
+- [ ] <strong>11:00:</strong> Bag drop/check-in
+- [ ] <strong>~12:00:</strong> Through security
+- [ ] <strong>~12:57:</strong> DEPARTURE (Jet2 to Manchester)
+- [ ] <strong>~16:45:</strong> ARRIVAL Manchester
+- [ ] <strong>17:30:</strong> Collect car from parking
+- [ ] <strong>19:00:</strong> Arrive home Nottingham</p>
+<hr />
+<h2>✈️ STEP 6: CHECK-IN (Do These Dates)</h2>
+<h3>☐ <strong>Outbound Check-in: Saturday March 29</strong></h3>
+<p><strong>Timing:</strong> Opens 24 hours before departure (~10:52 on March 29)</p>
+<p><strong>Actions:</strong>
+- [ ] Log into Jet2.com or app
+- [ ] Check in both passengers
+- [ ] Select seats (if not already done)
+- [ ] Download boarding passes (both passengers)
+- [ ] Print boarding passes (backup to phone)
+- [ ] Note bag drop times/deadlines</p>
+<p><strong>Jet2 Tip:</strong> Check in exactly at 24h mark for better seat selection</p>
+<hr />
+<h3>☐ <strong>Return Check-in: Wednesday April 9</strong></h3>
+<p><strong>Timing:</strong> Opens 24 hours before departure (~12:57 on April 9)</p>
+<p><strong>Actions:</strong>
+- [ ] Check in online (Jet2 app or website)
+- [ ] Download boarding passes
+- [ ] Print if possible (or screenshot)
+- [ ] Confirm flight time (check for changes)</p>
+<hr />
+<h2>🎒 STEP 7: PACKING &amp; PREPARATION</h2>
+<h3>☐ <strong>Week Before (March 23)</strong></h3>
+<p><strong>Documentation:</strong>
+- [ ] Passports valid until October 10, 2026 minimum
+- [ ] Boarding passes printed (backup to phone)
+- [ ] Travel insurance details
+- [ ] Marrakech riad confirmation
+- [ ] Car hire booking (pickup March 31)</p>
+<p><strong>Jet2 Baggage Allowance:</strong></p>
+<pre><code>CHECKED BAG (per person):
+- Weight: 22kg maximum
+- Size: No restriction (standard suitcase fine)
+- Included: YES ✅
+
+CABIN BAG (per person):
+- Weight: 10kg maximum
+- Size: 56cm × 45cm × 25cm
+- Included: YES ✅
+
+UNDER-SEAT BAG (per person):
+- Handbag/laptop bag
+- Must fit under seat
+- Included: YES ✅
+</code></pre>
+<p><strong>Packing Checklist:</strong>
+- [ ] Weigh checked bags at home (22kg max each)
+- [ ] Liquids in cabin &lt;100ml, clear bag
+- [ ] Valuables/meds in cabin bag
+- [ ] Phone chargers in cabin bag
+- [ ] Travel adapters (Morocco uses European 2-pin)</p>
+<p><strong>Money:</strong>
+- [ ] Notify bank of Morocco travel (avoid card blocks)
+- [ ] Get £50-100 Moroccan Dirhams for arrival (or plan ATM)
+- [ ] Carry credit/debit cards for ATMs (better rates)</p>
+<hr />
+<h2>📱 STEP 8: DEPARTURE DAY - SUNDAY MARCH 30</h2>
+<h3>☐ <strong>Timeline</strong></h3>
+<p><strong>04:00 - Wake Up</strong>
+- [ ] Final passport/boarding pass check
+- [ ] Phones charged
+- [ ] All bags ready</p>
+<p><strong>04:30 - Leave Nottingham</strong>
+- [ ] Drive to Manchester (85 miles, ~1.5h)
+- [ ] Allow buffer for traffic</p>
+<p><strong>06:00 - Arrive Manchester</strong>
+- [ ] Drive to off-site parking
+- [ ] Shuttle to terminal (~10 mins)
+- [ ] Terminal 1 or 2 (check boarding pass)</p>
+<p><strong>06:30 - Bag Drop</strong>
+- [ ] Find Jet2 bag drop desks
+- [ ] Drop 2 checked bags
+- [ ] Keep boarding passes + passports ready</p>
+<p><strong>07:00 - Security</strong>
+- [ ] Remove liquids, laptops, belts
+- [ ] Keep boarding pass + passport handy
+- [ ] Through to airside</p>
+<p><strong>08:00 - Airside</strong>
+- [ ] Find departure gate (check screens)
+- [ ] Breakfast if desired
+- [ ] Use bathroom before boarding</p>
+<p><strong>08:30 - Boarding Area</strong>
+- [ ] Be at gate 30 mins before departure
+- [ ] Listen for boarding calls
+- [ ] Jet2 boards by row/zone</p>
+<p><strong>~10:52 - DEPARTURE</strong> ✈️</p>
+<p><strong>~14:40 - ARRIVAL MARRAKECH</strong>
+- [ ] Follow signs to baggage reclaim
+- [ ] Collect 2 checked bags
+- [ ] Through customs
+- [ ] ATM for Dirhams if needed
+- [ ] Taxi to riad (~150-200 MAD)</p>
+<hr />
+<h2>🏠 STEP 9: RETURN DAY - THURSDAY APRIL 10</h2>
+<h3>☐ <strong>Morning Timeline</strong></h3>
+<p><strong>09:00 - Leave Agadir Accommodation</strong>
+- [ ] Final room check
+- [ ] Return car hire (if not at airport)
+- [ ] Drive to Agadir Airport</p>
+<p><strong>10:00 - Arrive Agadir Airport</strong>
+- [ ] 3 hours before departure (recommended international)
+- [ ] Find Jet2 check-in</p>
+<p><strong>10:30 - Bag Drop</strong>
+- [ ] Drop 2 checked bags
+- [ ] Keep boarding passes
+- [ ] Through to security</p>
+<p><strong>11:00 - Security &amp; Airside</strong>
+- [ ] Through security
+- [ ] Find departure gate
+- [ ] Last-minute shopping/food</p>
+<p><strong>12:00 - Gate Area</strong>
+- [ ] Be at gate area
+- [ ] Listen for boarding</p>
+<p><strong>~12:57 - DEPARTURE</strong> ✈️</p>
+<p><strong>~16:45 - ARRIVAL MANCHESTER</strong>
+- [ ] Collect 2 bags from baggage reclaim
+- [ ] Through customs (nothing to declare)
+- [ ] Shuttle to off-site parking
+- [ ] Collect car</p>
+<p><strong>~19:00 - Home in Nottingham</strong> 🏡</p>
+<hr />
+<h2>⚠️ CONTINGENCY PLANNING</h2>
+<h3>☐ <strong>If Flight Delayed/Cancelled</strong></h3>
+<p><strong>Your Rights (UK/EU):</strong>
+- Delay &gt;2h: Food/drink vouchers
+- Delay &gt;3h: Compensation (€250-400)
+- Cancellation: Full refund OR rebooking
+- Overnight: Hotel provided by airline</p>
+<p><strong>Actions:</strong>
+- [ ] Check Jet2 app for updates
+- [ ] Contact Jet2 customer service: +44 333 300 0042
+- [ ] Contact travel insurance
+- [ ] Contact accommodation if late arrival
+- [ ] Keep all receipts</p>
+<hr />
+<h3>☐ <strong>If Baggage Lost/Delayed</strong></h3>
+<p><strong>Immediate:</strong>
+- [ ] Report to Jet2 baggage desk BEFORE leaving airport
+- [ ] Get PIR (Property Irregularity Report) number
+- [ ] Photo any damaged bags
+- [ ] Keep baggage tags</p>
+<p><strong>Jet2 Compensation:</strong>
+- Interim supplies: Check policy
+- Insurance claim for essentials
+- Maximum liability: ~£1,150 per passenger</p>
+<hr />
+<h3>☐ <strong>Emergency Contacts</strong></h3>
+<p><strong>Save These Numbers:</strong></p>
+<p><strong>Jet2:</strong>
+- Customer service: +44 333 300 0042
+- Check Jet2 app for updates first</p>
+<p><strong>Manchester Airport:</strong>
+- General: +44 161 489 3000</p>
+<p><strong>Agadir Airport:</strong>
+- General: +212 528 839 000</p>
+<p><strong>Travel Insurance:</strong>
+- Emergency: <strong><em>_</em></strong><strong><em>_</em></strong><strong>
+- Policy number: <strong><em>_</em></strong><strong><em>_</em></strong></strong></p>
+<p><strong>UK Embassy Morocco:</strong>
+- Rabat: +212 537 633 333
+- Emergency: +212 661 494 724</p>
+<hr />
+<h2>✅ FINAL PRE-DEPARTURE CHECKLIST</h2>
+<h3>☐ <strong>Saturday March 29 Evening</strong></h3>
+<p><strong>Bookings Confirmed:</strong>
+- [ ] Outbound flight checked in ✅
+- [ ] Return flight booked ✅
+- [ ] Boarding passes downloaded ✅
+- [ ] Parking confirmed ✅
+- [ ] Marrakech riad confirmed ✅
+- [ ] Car hire confirmed (pickup March 31) ✅</p>
+<p><strong>Documents Ready:</strong>
+- [ ] Passports (both)
+- [ ] Boarding passes (printed + digital)
+- [ ] Travel insurance
+- [ ] Accommodation confirmations
+- [ ] Car hire booking
+- [ ] Small cash/cards</p>
+<p><strong>Bags Packed:</strong>
+- [ ] 2 checked bags (each ≤22kg)
+- [ ] 2 cabin bags (within size limits)
+- [ ] 2 under-seat bags
+- [ ] Liquids &lt;100ml in clear bags
+- [ ] Meds, valuables in cabin</p>
+<p><strong>Phone Prep:</strong>
+- [ ] Jet2 app installed
+- [ ] Boarding passes in app
+- [ ] Phone fully charged
+- [ ] Portable charger packed
+- [ ] Morocco roaming checked</p>
+<p><strong>Set Alarms:</strong>
+- [ ] 04:00 wake up alarm ⏰
+- [ ] Checked weather forecast</p>
+<hr />
+<h2>🎉 YOU'RE ALL SET!</h2>
+<p><strong>YOUR PERFECT TRIP:</strong></p>
+<p>✈️ <strong>Jet2 both ways</strong> (best service, bags included)<br />
+📅 <strong>11 nights</strong> (exactly as planned)<br />
+💰 <strong>£345-425</strong> (excellent value)<br />
+🎒 <strong>Nothing extra to pay</strong> (bags included!)<br />
+⭐ <strong>8.2/10 service</strong> (best in class)</p>
+<p><strong>Sunday March 30 → Thursday April 10</strong></p>
+<hr />
+<h2>📝 QUICK REFERENCE</h2>
+<p><strong>OUTBOUND:</strong>
+- Date: Sunday, March 30, 2026
+- Flight: Jet2 LS<strong><em>_ (add after booking)
+- Depart: Manchester ~10:52
+- Arrive: Marrakech ~14:40
+- Booking ref: </em></strong><strong><em>_</em></strong>______</p>
+<p><strong>RETURN:</strong>
+- Date: Thursday, April 10, 2026
+- Flight: Jet2 LS<strong><em>_ (add after booking)
+- Depart: Agadir ~12:57
+- Arrive: Manchester ~16:45
+- Booking ref: </em></strong><strong><em>_</em></strong>______</p>
+<p><strong>PARKING:</strong>
+- Type: <strong><em>_</em></strong><strong><em>_</em></strong><strong>
+- Confirmation: <strong><em>_</em></strong><strong><em>_</em></strong></strong>
+- Cost: £______</p>
+<hr />
+<p><strong>BOOKING STATUS:</strong>
+- [ ] ✅ STEP 1: Pre-booking prep COMPLETE
+- [ ] ✅ STEP 2: Outbound flight BOOKED
+- [ ] ✅ STEP 2: Return flight BOOKED
+- [ ] ✅ STEP 3: Post-booking actions COMPLETE
+- [ ] ✅ STEP 4: Parking BOOKED
+- [ ] ⏳ STEP 6: Check-in (do March 29)
+- [ ] ⏳ STEP 7: Pack (week before)
+- [ ] ⏳ STEP 8: Ready for departure! ✈️</p>
+<p><strong>Have an amazing trip to Morocco! 🇲🇦</strong></p>
+        </div>
+        
+        <div style="text-align: center; padding: 40px; background: #f8f9fa; margin-top: 40px;">
+            <h2 style="color: #667eea;">Ready to Book?</h2>
+            <a href="https://www.jet2.com/en/cheap-flights/manchester/marrakech" class="btn">Book Outbound Flight →</a>
+            <a href="https://www.jet2.com/en/cheap-flights/agadir/manchester" class="btn">Book Return Flight →</a>
+            <p style="margin-top: 20px; color: #666;">⚡ Book within 24-48 hours for best prices!</p>
+        </div>
+    </div>
+    
+    <script>
+        // Add click handlers for checkboxes (for interactive version)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Convert checkbox markers to actual checkboxes
+            const content = document.querySelector('.content');
+            content.innerHTML = content.innerHTML.replace(/\[ \]/g, '<input type="checkbox" class="checkbox">');
+            content.innerHTML = content.innerHTML.replace(/\[x\]/gi, '<input type="checkbox" class="checkbox" checked>');
+            
+            // Make emojis bigger
+            content.innerHTML = content.innerHTML.replace(/✅/g, '<span style="font-size: 1.2em;">✅</span>');
+            content.innerHTML = content.innerHTML.replace(/❌/g, '<span style="font-size: 1.2em;">❌</span>');
+            content.innerHTML = content.innerHTML.replace(/⚠️/g, '<span style="font-size: 1.2em;">⚠️</span>');
+            content.innerHTML = content.innerHTML.replace(/🎯/g, '<span style="font-size: 1.2em;">🎯</span>');
+        });
+    </script>
+</body>
+</html>

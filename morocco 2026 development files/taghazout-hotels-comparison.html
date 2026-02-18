@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taghazout Hotels Comparison - Morocco Trip</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .critical-requirements {
+            background: #fef3c7;
+            border-left: 6px solid #f59e0b;
+            padding: 20px;
+            margin: 30px;
+            border-radius: 10px;
+        }
+        
+        .critical-requirements h2 {
+            color: #92400e;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .critical-requirements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .critical-requirements li {
+            padding: 8px 0;
+            font-size: 1.1em;
+            color: #78350f;
+        }
+        
+        .critical-requirements li::before {
+            content: "⭐⭐⭐ ";
+        }
+        
+        .comparison-table {
+            margin: 30px;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        thead {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+        }
+        
+        th {
+            padding: 20px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tbody tr:hover {
+            background: #f3f4f6;
+        }
+        
+        .verified {
+            color: #059669;
+            font-weight: 600;
+        }
+        
+        .verified::before {
+            content: "✅ ";
+        }
+        
+        .unverified {
+            color: #d97706;
+            font-weight: 600;
+        }
+        
+        .unverified::before {
+            content: "⚠️ ";
+        }
+        
+        .poor {
+            color: #dc2626;
+            font-weight: 600;
+        }
+        
+        .poor::before {
+            content: "❌ ";
+        }
+        
+        .hotel-card {
+            margin: 30px;
+            padding: 30px;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            background: #f9fafb;
+        }
+        
+        .hotel-card.recommended {
+            border-color: #10b981;
+            background: #ecfdf5;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
+        }
+        
+        .hotel-card h2 {
+            color: #1e40af;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .hotel-card.recommended h2::before {
+            content: "🏆";
+            font-size: 1.2em;
+        }
+        
+        .hotel-card h3 {
+            color: #374151;
+            margin: 20px 0 10px 0;
+            font-size: 1.3em;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature {
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .pros, .cons {
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .pros {
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+        }
+        
+        .cons {
+            background: #fef2f2;
+            border: 2px solid #ef4444;
+        }
+        
+        .pros h4, .cons h4 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .pros h4 {
+            color: #065f46;
+        }
+        
+        .cons h4 {
+            color: #991b1b;
+        }
+        
+        .pros ul, .cons ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .pros li::before {
+            content: "✅ ";
+        }
+        
+        .cons li::before {
+            content: "⚠️ ";
+        }
+        
+        .recommendation {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 40px;
+            margin: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .recommendation h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .recommendation ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+            list-style: none;
+        }
+        
+        .recommendation li {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+        
+        .recommendation li::before {
+            content: "✅ ";
+        }
+        
+        .next-actions {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            padding: 30px;
+            margin: 30px;
+            border-radius: 15px;
+        }
+        
+        .next-actions h2 {
+            color: #1e40af;
+            margin-bottom: 20px;
+        }
+        
+        .next-actions ol {
+            padding-left: 25px;
+        }
+        
+        .next-actions li {
+            padding: 8px 0;
+            font-size: 1.1em;
+        }
+        
+        .budget-tracker {
+            margin: 30px;
+            padding: 30px;
+            background: #f3f4f6;
+            border-radius: 15px;
+        }
+        
+        .budget-tracker h2 {
+            color: #1e40af;
+            margin-bottom: 20px;
+        }
+        
+        .budget-tracker table {
+            background: white;
+        }
+        
+        @media (max-width: 768px) {
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .hotel-card h2 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏨 Taghazout Hotels Comparison</h1>
+            <p>Morocco Trip • April 8-9, 2026 • 2 Nights • 2 People</p>
+            <p><strong>Budget:</strong> £240-360 (£120-180/night)</p>
+        </header>
+
+        <div class="critical-requirements">
+            <h2>🎯 Critical Requirements (NON-NEGOTIABLE)</h2>
+            <ul>
+                <li><strong>GYM with exercise bike</strong> (stationary/spin bike)</li>
+                <li><strong>GYM with free weights/dumbbells</strong></li>
+                <li>Beach access</li>
+                <li>Pool facilities</li>
+                <li>Early checkout capability (8:30am departure for airport)</li>
+            </ul>
+        </div>
+
+        <div class="comparison-table">
+            <h2 style="margin-bottom: 20px; color: #1e40af; font-size: 1.8em;">📊 Quick Comparison Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Riu Palace</th>
+                        <th>Hyatt Regency</th>
+                        <th>Radisson Blu</th>
+                        <th>Hilton</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Exercise Bike</strong></td>
+                        <td><span class="unverified">Unverified</span></td>
+                        <td><span class="verified">YES (Peloton)</span></td>
+                        <td><span class="unverified">Unverified</span></td>
+                        <td><span class="unverified">Unverified</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Free Weights</strong></td>
+                        <td><span class="unverified">Unverified</span></td>
+                        <td><span class="unverified">Likely (strength equip)</span></td>
+                        <td><span class="unverified">Unverified</span></td>
+                        <td><span class="unverified">Unverified</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gym Hours</strong></td>
+                        <td>24 hours</td>
+                        <td>24 hours</td>
+                        <td>24/7</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gym Quality</strong></td>
+                        <td>"Excellent" reviews</td>
+                        <td>"Well-equipped" + Coach</td>
+                        <td><span class="poor">"Poor" rating</span></td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Beachfront</strong></td>
+                        <td><span class="verified">Direct access</span></td>
+                        <td>2.4km (private access)</td>
+                        <td><span class="verified">Overlooks sea</span></td>
+                        <td>~10min walk</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pool Count</strong></td>
+                        <td>7+ pools</td>
+                        <td>3 pools</td>
+                        <td>1 pool</td>
+                        <td>4 pools</td>
+                    </tr>
+                    <tr>
+                        <td><strong>All-Inclusive</strong></td>
+                        <td><span class="verified">Yes</span></td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Est. Price/Night</strong></td>
+                        <td>£200-250</td>
+                        <td>£130-160</td>
+                        <td>£120-150</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total (2 nights)</strong></td>
+                        <td>£400-500</td>
+                        <td>£260-320</td>
+                        <td>£240-300</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td><strong>User Rating</strong></td>
+                        <td>4/5</td>
+                        <td><strong>9.0/10 ⭐</strong></td>
+                        <td>Good</td>
+                        <td>Good</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="recommendation">
+            <h2>🏆 TOP RECOMMENDATION: HYATT REGENCY TAGHAZOUT</h2>
+            <p style="font-size: 1.3em; margin-bottom: 20px;">Clear winner based on gym equipment verification</p>
+            <ul>
+                <li><strong>CONFIRMED Peloton bikes</strong> - Exercise bike requirement MET</li>
+                <li><strong>LifeFitness strength equipment</strong> - Free weights likely included</li>
+                <li><strong>24-hour gym access</strong> - Perfect for early 8:30am departure</li>
+                <li><strong>Fitness coach available</strong> - Professional guidance</li>
+                <li><strong>Highest rated</strong> - 9.0/10 across multiple platforms</li>
+                <li><strong>Premium facilities</strong> - 3 pools, spa, private beach, tennis</li>
+                <li><strong>Best value</strong> - £260-320 vs £400-500 for all-inclusive Riu</li>
+            </ul>
+        </div>
+
+        <div class="hotel-card recommended">
+            <h2>Hyatt Regency Taghazout ⭐⭐⭐⭐⭐</h2>
+            
+            <h3>🏋️ Gym Facilities</h3>
+            <div class="feature-grid">
+                <div class="feature"><strong>Equipment:</strong> LifeFitness brand</div>
+                <div class="feature"><strong>Bikes:</strong> <span class="verified">2 Pelotons</span></div>
+                <div class="feature"><strong>Strength:</strong> <span class="unverified">Likely free weights</span></div>
+                <div class="feature"><strong>Hours:</strong> 24/7 access</div>
+                <div class="feature"><strong>Coach:</strong> Available on-site</div>
+                <div class="feature"><strong>Classes:</strong> Yoga & Pilates</div>
+            </div>
+
+            <h3>🏖️ Other Facilities</h3>
+            <div class="feature-grid">
+                <div class="feature">3 outdoor pools (2 infinity)</div>
+                <div class="feature">Adults-only quiet pool</div>
+                <div class="feature">Private beach access</div>
+                <div class="feature">Full-service Ilel Spa</div>
+                <div class="feature">3 restaurants + 2 bars</div>
+                <div class="feature">Tennis courts</div>
+                <div class="feature">190 ocean/garden view rooms</div>
+                <div class="feature">Free WiFi & parking</div>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ Pros</h4>
+                    <ul>
+                        <li>CONFIRMED Peloton bikes</li>
+                        <li>24-hour gym (early departure friendly)</li>
+                        <li>Premium LifeFitness equipment</li>
+                        <li>Fitness coach + classes</li>
+                        <li>Highest ratings (9.0/10)</li>
+                        <li>Pet-friendly</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>⚠️ Cons / To Verify</h4>
+                    <ul>
+                        <li>Not direct beachfront (2.4km, but private beach)</li>
+                        <li>Need to confirm free weights</li>
+                        <li>Need to confirm early checkout</li>
+                        <li>Need live pricing for April 8-9</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 1.1em; margin-top: 20px;"><strong>Estimated Cost:</strong> £260-320 for 2 nights (within budget)</p>
+        </div>
+
+        <div class="hotel-card">
+            <h2>Hotel Riu Palace Tikida Taghazout ⭐⭐⭐⭐⭐</h2>
+            
+            <h3>🏋️ Gym Facilities</h3>
+            <div class="feature-grid">
+                <div class="feature"><strong>Equipment:</strong> "State-of-the-art"</div>
+                <div class="feature"><strong>Bikes:</strong> <span class="unverified">Not verified</span></div>
+                <div class="feature"><strong>Weights:</strong> <span class="unverified">Not verified</span></div>
+                <div class="feature"><strong>Hours:</strong> 24/7 access</div>
+                <div class="feature"><strong>Reviews:</strong> "Excellent"</div>
+                <div class="feature"><strong>Classes:</strong> RiuFit program</div>
+            </div>
+
+            <h3>🏖️ Other Facilities</h3>
+            <div class="feature-grid">
+                <div class="feature">7 outdoor pools</div>
+                <div class="feature">2 infinity pools</div>
+                <div class="feature">1 indoor heated pool</div>
+                <div class="feature">Direct beachfront</div>
+                <div class="feature">Spa + hammam</div>
+                <div class="feature">4 restaurants + bars</div>
+                <div class="feature">All-inclusive 24hr</div>
+                <div class="feature">500+ rooms</div>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ Pros</h4>
+                    <ul>
+                        <li>24-hour gym access</li>
+                        <li>All-inclusive convenience</li>
+                        <li>Direct beachfront location</li>
+                        <li>Most pools (7 vs 3)</li>
+                        <li>"Excellent" gym reviews</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>⚠️ Cons</h4>
+                    <ul>
+                        <li>Equipment NOT confirmed (critical issue)</li>
+                        <li>Higher cost (£400-500)</li>
+                        <li>All-inclusive may be overkill for 2 nights</li>
+                        <li>Standard 11am checkout</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 1.1em; margin-top: 20px;"><strong>Estimated Cost:</strong> £400-500 for 2 nights (above budget)</p>
+        </div>
+
+        <div class="next-actions">
+            <h2>✅ Next Actions Required</h2>
+            <h3>IMMEDIATE (Before Booking):</h3>
+            <ol>
+                <li><strong>Contact Hyatt Regency</strong> - Verify free weights/dumbbells in gym</li>
+                <li><strong>Get live pricing</strong> - April 8-9, 2026 for 2 people at Hyatt</li>
+                <li><strong>Confirm early checkout</strong> - Can leave by 8:30am on April 9?</li>
+            </ol>
+            
+            <h3 style="margin-top: 20px;">IF HYATT CONFIRMED:</h3>
+            <ol start="4">
+                <li>Book Hyatt Regency Taghazout</li>
+                <li>Request ocean view room (for workout views)</li>
+                <li>Arrange early checkout (8:30am departure)</li>
+                <li>Update master trip document</li>
+            </ol>
+            
+            <h3 style="margin-top: 20px;">IF HYATT LACKS FREE WEIGHTS:</h3>
+            <ol start="8">
+                <li>Verify Riu Palace equipment inventory</li>
+                <li>Consider if Peloton alone is acceptable</li>
+                <li>Evaluate bodyweight alternatives for strength work</li>
+            </ol>
+        </div>
+
+        <div class="budget-tracker">
+            <h2>💰 Budget Tracker</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Budgeted</th>
+                        <th>Spent/Estimated</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Flights (2 people)</td>
+                        <td>£900-1,000</td>
+                        <td>£900</td>
+                        <td><span class="verified">PAID</span></td>
+                    </tr>
+                    <tr>
+                        <td>Marrakech (2 nights)</td>
+                        <td>£120-180</td>
+                        <td>£275</td>
+                        <td><span class="verified">PAID</span></td>
+                    </tr>
+                    <tr>
+                        <td>Todra Gorge (1 night)</td>
+                        <td>£70-100</td>
+                        <td>£37</td>
+                        <td><span class="verified">PAID</span></td>
+                    </tr>
+                    <tr>
+                        <td>Merzouga Desert (1 night)</td>
+                        <td>£150-250</td>
+                        <td>£175-195</td>
+                        <td><span class="verified">PAID</span></td>
+                    </tr>
+                    <tr>
+                        <td>Agdz (1 night)</td>
+                        <td>£50-80</td>
+                        <td>TBD</td>
+                        <td><span class="unverified">PENDING</span></td>
+                    </tr>
+                    <tr>
+                        <td>Taroudant (1 night)</td>
+                        <td>£50-80</td>
+                        <td>TBD</td>
+                        <td><span class="unverified">PENDING</span></td>
+                    </tr>
+                    <tr style="background: #ecfdf5;">
+                        <td><strong>Taghazout (2 nights)</strong></td>
+                        <td><strong>£240-360</strong></td>
+                        <td><strong>£260-320 (Hyatt est.)</strong></td>
+                        <td><strong><span class="unverified">TO BOOK</span></strong></td>
+                    </tr>
+                    <tr>
+                        <td>Car Rental (8 days)</td>
+                        <td>£200-300</td>
+                        <td>TBD</td>
+                        <td><span class="unverified">PENDING</span></td>
+                    </tr>
+                    <tr style="background: #f3f4f6; font-weight: bold;">
+                        <td>TOTAL SPENT/ESTIMATED</td>
+                        <td>£2,800-3,800</td>
+                        <td>£1,677-1,697 + pending</td>
+                        <td>£1,103-2,103 remaining</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 20px; text-align: center; font-size: 1.1em;">
+                <strong>Status:</strong> Within budget ✅ - Plenty of room for Agdz, Taroudant, and car rental
+            </p>
+        </div>
+
+        <footer style="background: #f3f4f6; padding: 30px; text-align: center; color: #6b7280;">
+            <p><strong>Last Updated:</strong> 2026-02-14 11:35</p>
+            <p><strong>Status:</strong> Research complete, awaiting equipment verification + live pricing</p>
+            <p style="margin-top: 10px;">📍 Taghazout is 19km north of Agadir | 45km from airport</p>
+        </footer>
+    </div>
+</body>
+</html>
