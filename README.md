@@ -199,20 +199,45 @@ The site prints well! Use browser Print → Save as PDF to create a PDF version
 - No plugins required
 - Pure HTML/CSS (no JavaScript needed)
 
-**File Structure:**
+---
+
+## 📂 STANDARD FILESYSTEM DESIGN FOR NEW TRIPS
+
+**This structure should be used as the template for all new trip projects:**
+
 ```
-morocco-trip/
-├── index.html          (HOME - start here)
-├── marrakech.html
-├── todra.html
-├── merzouga.html
-├── nkob.html
-├── taroudant.html
-├── taghazout.html
-├── journey.html
-├── style.css           (all styling)
-└── images/             (photo folder)
+/Trip Name Year/
+├── docs/                              ← WEBSITE FILES (GitHub Pages serves from here)
+│   ├── index.html                     (home page)
+│   ├── style.css                      (styling)
+│   ├── [location].html                (location pages)
+│   ├── itinerary-daily.html           (day-by-day guide)
+│   ├── itinerary-summary.html         (quick reference)
+│   ├── bookings.html                  (booking details)
+│   ├── journey.html                   (driving routes)
+│   └── photo_brochure/                (all images)
+│       └── *.jpg, *.webp, *.png
+├── [trip] development files/          ← Research, drafts, working documents
+├── [trip] output files/               ← Generated PDFs, exports
+├── reference files/                   ← Source materials, inspiration
+├── process documentation/             ← Planning notes
+├── .git/                              ← Git repository
+├── .claude/                           ← Claude project settings
+└── README.md                          ← This file
 ```
+
+**Why this structure:**
+- **Clean separation** - Website files isolated in /docs, development files elsewhere
+- **GitHub Pages compatible** - Configure Pages to serve from /docs folder
+- **Tidy filesystem** - HTML files don't mix with development folders
+- **Easy deployment** - Just push to main branch, Pages auto-deploys from /docs
+
+**GitHub Pages Setup:**
+1. Push repo to GitHub
+2. Go to Settings → Pages
+3. Source: "Deploy from a branch"
+4. Branch: main, Folder: /docs
+5. Save - site deploys to https://[username].github.io/[repo-name]/
 
 **Total File Size:** Under 1MB (super fast loading!)
 
