@@ -1,0 +1,17 @@
+{
+  "active_detour": false,
+  "current_phase": "Phase 0",
+  "current_phase_name": "Pre-Research Setup",
+  "current_checkpoint": "0.1",
+  "current_checkpoint_name": "Research Scope Definition",
+  "last_completed_checkpoint": null,
+  "next_action": "Define trip scope and constraints",
+  "context": "Starting Morocco trip planning",
+  "return_point": null,
+  "detour_phase": null,
+  "detour_request": null,
+  "detour_timestamp": null,
+  "detour_reason": null,
+  "return_expected": false,
+  "notes": "This file tracks current position in the checkpoint process. Updated automatically by Checkpoint 0.1."
+}

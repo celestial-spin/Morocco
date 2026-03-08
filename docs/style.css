@@ -246,14 +246,6 @@ nav {
   animation: fadeInUp 1.2s ease-out 0.2s both;
 }
 
-.hero .lead-text {
-  color: var(--warm-white);
-}
-
-.hero-content p {
-  max-width: none;
-}
-
 .hero-dates {
   font-size: 1.25rem;
   font-weight: 300;
@@ -301,12 +293,6 @@ nav {
 .section-header {
   text-align: center;
   margin-bottom: var(--space-lg);
-}
-
-.section-header p,
-.section-header .lead-text {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* ============================================
@@ -420,10 +406,6 @@ nav {
   color: var(--sand);
 }
 
-.page-header .lead-text {
-  color: var(--warm-white);
-}
-
 /* ============================================
    CONTENT SECTIONS
    ============================================ */
@@ -478,22 +460,8 @@ nav {
   border-left: 4px solid var(--gold);
 }
 
-.info-box h3,
-.info-box h4,
-.info-box p,
-.info-box .lead-text,
-.info-box .subtitle,
-.info-box strong,
-.info-box a {
-  color: var(--warm-white) !important;
-}
-
 .info-box h3 {
-  text-align: left;
-}
-
-.info-box a {
-  text-decoration: underline;
+  color: var(--warm-white);
 }
 
 .highlight-box {
@@ -502,24 +470,6 @@ nav {
   border-radius: 4px;
   margin: var(--space-md) 0;
   border-left: 4px solid var(--terracotta);
-}
-
-.highlight-box h3,
-.highlight-box h4,
-.highlight-box p,
-.highlight-box .lead-text,
-.highlight-box .subtitle,
-.highlight-box strong,
-.highlight-box a {
-  color: var(--soft-black) !important;
-}
-
-.highlight-box h3 {
-  text-align: left;
-}
-
-.highlight-box a {
-  text-decoration: underline;
 }
 
 /* ============================================
