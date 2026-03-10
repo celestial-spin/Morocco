@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comms Tracker — Morocco 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #181a22;
+    --surface-raised: #1e2130;
+    --border: #2a2d3a;
+    --text: #e2e4eb;
+    --text-muted: #8b8fa3;
+    --text-dim: #5c6070;
+    --accent: #6c9bff;
+
+    --status-awaiting: #f0a830;
+    --status-awaiting-bg: rgba(240, 168, 48, 0.10);
+    --status-sent: #6c9bff;
+    --status-sent-bg: rgba(108, 155, 255, 0.10);
+    --status-resolved: #5eb88a;
+    --status-resolved-bg: rgba(94, 184, 138, 0.10);
+    --status-replied: #a78bfa;
+    --status-replied-bg: rgba(167, 139, 250, 0.10);
+    --status-no-response: #f06b6b;
+    --status-no-response-bg: rgba(240, 107, 107, 0.10);
+    --status-tbc: #5c6070;
+    --status-tbc-bg: rgba(92, 96, 112, 0.10);
+
+    --dir-out: #6c9bff;
+    --dir-in: #5eb88a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 2rem;
+    min-height: 100vh;
+  }
+
+  header {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+  }
+
+  header .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .summary-bar {
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .summary-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .summary-chip .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .filter-bar {
+    max-width: 1200px;
+    margin: 0 auto 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .filter-btn:hover { border-color: var(--text-muted); color: var(--text); }
+  .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(108, 155, 255, 0.08); }
+
+  .table-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  thead th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    background: var(--surface-raised);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.12s ease;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface-raised); }
+  tbody tr.placeholder { opacity: 0.45; }
+
+  td {
+    padding: 0.65rem 1rem;
+    vertical-align: top;
+    white-space: nowrap;
+  }
+
+  td.notes-col {
+    white-space: normal;
+    max-width: 280px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .date-cell {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+  }
+
+  .date-cell.tbc { color: var(--text-dim); font-style: italic; }
+
+  .dir-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+  }
+
+  .dir-out { color: var(--dir-out); background: rgba(108, 155, 255, 0.10); }
+  .dir-in { color: var(--dir-in); background: rgba(94, 184, 138, 0.10); }
+
+  .channel-tag {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .status-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.2rem 0.55rem;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  .status-awaiting { color: var(--status-awaiting); background: var(--status-awaiting-bg); }
+  .status-sent { color: var(--status-sent); background: var(--status-sent-bg); }
+  .status-resolved { color: var(--status-resolved); background: var(--status-resolved-bg); }
+  .status-replied { color: var(--status-replied); background: var(--status-replied-bg); }
+  .status-no-response { color: var(--status-no-response); background: var(--status-no-response-bg); }
+  .status-tbc { color: var(--status-tbc); background: var(--status-tbc-bg); }
+
+  .chase-cell {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+  }
+
+  .chase-cell.overdue { color: var(--status-no-response); font-weight: 600; }
+  .chase-cell.soon { color: var(--status-awaiting); }
+
+  footer {
+    max-width: 1200px;
+    margin: 1.5rem auto 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  footer p { margin-bottom: 0.3rem; }
+
+  @media (max-width: 768px) {
+    body { padding: 1rem; }
+    td, th { padding: 0.5rem 0.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Comms Tracker — Morocco 2026</h1>
+  <div class="subtitle">Phil &amp; Steph &nbsp;·&nbsp; Mar 30 – Apr 9 &nbsp;·&nbsp; Source: planning-docs/COMMS-TRACKER.md</div>
+</header>
+
+<div class="summary-bar" id="summaryBar"></div>
+
+<div class="filter-bar" id="filterBar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="AWAITING">Awaiting</button>
+  <button class="filter-btn" data-filter="NO RESPONSE">No Response</button>
+  <button class="filter-btn" data-filter="RESOLVED">Resolved</button>
+  <button class="filter-btn" data-filter="TBC">TBC</button>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Dir</th>
+        <th>Channel</th>
+        <th>Contact</th>
+        <th>Subject</th>
+        <th>Status</th>
+        <th>Chase by</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<footer>
+  <p>Rows marked TBC are placeholders — backfill or remove once confirmed.</p>
+  <p>Markdown source of truth: ~/AI-Holiday-Planner/Holiday-Projects/morocco-2026/planning-docs/COMMS-TRACKER.md</p>
+</footer>
+
+<script>
+const comms = [
+  {
+    date: "early Mar",
+    datePrecise: false,
+    direction: "OUT",
+    type: "SUPPLIER",
+    channel: "Email",
+    contact: "Saad Rent Cars",
+    subject: "Car hire enquiry (English)",
+    status: "NO RESPONSE",
+    chaseBy: null,
+    notes: "First attempt — no reply received",
+    placeholder: false
+  },
+  {
+    date: "2026-03-09",
+    datePrecise: true,
+    direction: "OUT",
+    type: "SUPPLIER",
+    channel: "Email",
+    contact: "Saad Rent Cars",
+    subject: "Car hire enquiry (French)",
+    status: "AWAITING",
+    chaseBy: "2026-03-12",
+    notes: "Second attempt in French. WhatsApp fallback: +212 661 454944",
+    placeholder: false
+  },
+  {
+    date: "TBC",
+    datePrecise: false,
+    direction: "OUT",
+    type: "SUPPLIER",
+    channel: "Email",
+    contact: "Palais Oumensour",
+    subject: "Breakfast availability/options",
+    status: "AWAITING",
+    chaseBy: null,
+    notes: "",
+    placeholder: false
+  },
+  {
+    date: "TBC",
+    datePrecise: false,
+    direction: "OUT",
+    type: "SUPPLIER",
+    channel: "Phone",
+    contact: "Hyatt Regency Taghazout",
+    subject: "Linking two bookings",
+    status: "RESOLVED",
+    chaseBy: null,
+    notes: "Call unsuccessful — deal with on arrival",
+    placeholder: false
+  },
+  {
+    date: "TBC",
+    datePrecise: false,
+    direction: "OUT",
+    type: "SUPPLIER",
+    channel: "Booking.com",
+    contact: "Riad Pachavana",
+    subject: "TBC — confirm if messages sent",
+    status: "TBC",
+    chaseBy: null,
+    notes: "",
+    placeholder: true
+  },
+  {
+    date: "TBC",
+    datePrecise: false,
+    direction: "OUT",
+    type: "SUPPLIER",
+    channel: "Booking.com",
+    contact: "Hotel AZUL",
+    subject: "TBC — confirm if messages sent",
+    status: "TBC",
+    chaseBy: null,
+    notes: "",
+    placeholder: true
+  },
+  {
+    date: "TBC",
+    datePrecise: false,
+    direction: "OUT",
+    type: "SUPPLIER",
+    channel: "Booking.com",
+    contact: "Desert Luxury Camp",
+    subject: "TBC — confirm if messages sent",
+    status: "TBC",
+    chaseBy: null,
+    notes: "",
+    placeholder: true
+  },
+  {
+    date: "TBC",
+    datePrecise: false,
+    direction: "OUT",
+    type: "SUPPLIER",
+    channel: "Booking.com",
+    contact: "Kasbah Ait Omar",
+    subject: "TBC — confirm if messages sent",
+    status: "TBC",
+    chaseBy: null,
+    notes: "",
+    placeholder: true
+  },
+  {
+    date: "TBC",
+    datePrecise: false,
+    direction: "OUT",
+    type: "SUPPLIER",
+    channel: "Booking.com",
+    contact: "Palais Oumensour",
+    subject: "TBC — confirm if messages sent",
+    status: "TBC",
+    chaseBy: null,
+    notes: "",
+    placeholder: true
+  },
+  {
+    date: "TBC",
+    datePrecise: false,
+    direction: "OUT",
+    type: "SUPPLIER",
+    channel: "Booking.com",
+    contact: "Hyatt Regency Taghazout",
+    subject: "TBC — confirm if messages sent",
+    status: "TBC",
+    chaseBy: null,
+    notes: "",
+    placeholder: true
+  }
+];
+
+const today = new Date("2026-03-10");
+
+function statusClass(s) {
+  const map = {
+    "AWAITING": "status-awaiting",
+    "SENT": "status-sent",
+    "RESOLVED": "status-resolved",
+    "REPLIED": "status-replied",
+    "NO RESPONSE": "status-no-response",
+    "TBC": "status-tbc"
+  };
+  return map[s] || "status-tbc";
+}
+
+function chaseState(chaseBy) {
+  if (!chaseBy) return "";
+  const d = new Date(chaseBy);
+  const diff = (d - today) / (1000 * 60 * 60 * 24);
+  if (diff < 0) return "overdue";
+  if (diff <= 2) return "soon";
+  return "";
+}
+
+function renderSummary() {
+  const counts = {};
+  comms.forEach(c => { counts[c.status] = (counts[c.status] || 0) + 1; });
+  const bar = document.getElementById("summaryBar");
+  const order = ["AWAITING", "NO RESPONSE", "RESOLVED", "TBC"];
+  order.forEach(s => {
+    if (!counts[s]) return;
+    const chip = document.createElement("div");
+    chip.className = "summary-chip";
+    chip.style.background = `var(--status-${s.toLowerCase().replace(/ /g, "-")}-bg)`;
+    chip.style.color = `var(--status-${s.toLowerCase().replace(/ /g, "-")})`;
+    chip.innerHTML = `<span class="dot" style="background:var(--status-${s.toLowerCase().replace(/ /g, "-")})"></span>${counts[s]} ${s}`;
+    bar.appendChild(chip);
+  });
+}
+
+function renderTable(filter) {
+  const tbody = document.getElementById("tableBody");
+  tbody.innerHTML = "";
+  comms.forEach(c => {
+    if (filter !== "all" && c.status !== filter) return;
+    const tr = document.createElement("tr");
+    if (c.placeholder) tr.classList.add("placeholder");
+
+    const cState = chaseState(c.chaseBy);
+    tr.innerHTML = `
+      <td class="date-cell ${c.datePrecise ? '' : 'tbc'}">${c.date}</td>
+      <td><span class="dir-badge dir-${c.direction.toLowerCase()}">${c.direction}</span></td>
+      <td class="channel-tag">${c.channel}</td>
+      <td>${c.contact}</td>
+      <td>${c.subject}</td>
+      <td><span class="status-pill ${statusClass(c.status)}">${c.status}</span></td>
+      <td class="chase-cell ${cState}">${c.chaseBy || "—"}</td>
+      <td class="notes-col">${c.notes || "—"}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+document.getElementById("filterBar").addEventListener("click", e => {
+  if (!e.target.classList.contains("filter-btn")) return;
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  e.target.classList.add("active");
+  renderTable(e.target.dataset.filter);
+});
+
+renderSummary();
+renderTable("all");
+</script>
+
+</body>
+</html>
