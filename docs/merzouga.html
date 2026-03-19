@@ -5,6 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merzouga Desert - Morocco 2026</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .gallery-photo {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .gallery-photo .photo-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 1rem 0.75rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            color: #FFFEF9;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-align: center;
+            line-height: 1.4;
+        }
+        .page-header-background.has-photo {
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+        .page-header-background.has-photo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(26, 75, 109, 0.6), rgba(193, 81, 46, 0.4));
+        }
+        .location-card-photo {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -24,9 +63,7 @@
 
     <!-- Page Header -->
     <header class="page-header">
-        <div class="page-header-background img-placeholder" style="background: linear-gradient(135deg, #D4A574 0%, #E67E50 100%);">
-            MERZOUGA SAHARA DESERT<br>Golden dunes stretching to horizon
-        </div>
+        <div class="page-header-background has-photo" style="background-image: url('photo_brochure/Merzouga_erg_chebbi_dunes.jpg');"></div>
         <div class="page-header-content">
             <p class="subtitle">Day 4 • Wednesday, April 2</p>
             <h1>Our Desert Night</h1>
@@ -145,15 +182,9 @@
 
             <h3>Scenic Stops Along the Way</h3>
             <div class="image-gallery">
-                <div class="img-placeholder gallery-image">
-                    TODRA GORGE EXIT<br>Morning light on canyon walls
-                </div>
-                <div class="img-placeholder gallery-image">
-                    TINEJDAD PALM GROVES<br>Green oasis against mountains
-                </div>
-                <div class="img-placeholder gallery-image">
-                    FIRST DESERT VIEWS<br>Erg Chebbi dunes appearing
-                </div>
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/tinejdad%20rooftops.jpg');"><div class="photo-label">TODRA GORGE EXIT<br>Morning light on canyon walls</div></div>
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/tinejdad.webp');"><div class="photo-label">TINEJDAD PALM GROVES<br>Green oasis against mountains</div></div>
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/sahara%20desert%20view.jpg');"><div class="photo-label">FIRST DESERT VIEWS<br>Erg Chebbi dunes appearing</div></div>
             </div>
         </section>
 

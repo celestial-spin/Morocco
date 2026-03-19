@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Journey - Morocco 2026</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Image overlay labels for gallery items with real photos */
+        .gallery-photo {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .gallery-photo .photo-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 1rem 0.75rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            color: #FFFEF9;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-align: center;
+            line-height: 1.4;
+        }
+        /* Improved placeholder style for slots without photos */
+        .img-placeholder.gallery-image {
+            position: relative;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -23,10 +51,9 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
+    <!-- Page Header — now with real background image -->
     <header class="page-header">
-        <div class="page-header-background img-placeholder" style="background: linear-gradient(135deg, #1A4B6D 0%, #E67E50 100%);">
-            MOROCCO LANDSCAPES<br>Mountains, desert, valleys, coast
+        <div class="page-header-background" style="background-image: url('photo_brochure/Dades-Valley-1.webp'); background-size: cover; background-position: center;">
         </div>
         <div class="page-header-content">
             <p class="subtitle">The Road Trip</p>
@@ -91,11 +118,11 @@
                 <div class="img-placeholder gallery-image">
                     AÏT BENHADDOU<br>UNESCO kasbah (30min detour)
                 </div>
-                <div class="img-placeholder gallery-image">
-                    VALLEY OF KASBAHS<br>Skoura palm groves
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/Skoura%20oasis.jpg');">
+                    <div class="photo-label">VALLEY OF KASBAHS<br>Skoura palm groves</div>
                 </div>
-                <div class="img-placeholder gallery-image">
-                    DADES VALLEY<br>Rose Valley region
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/Dades-Valley-1.webp');">
+                    <div class="photo-label">DADES VALLEY<br>Rose Valley region</div>
                 </div>
             </div>
 
@@ -129,14 +156,14 @@
 
             <h3>Scenic Highlights</h3>
             <div class="image-gallery mb-lg">
-                <div class="img-placeholder gallery-image">
-                    TODRA GORGE EXIT<br>Morning light on canyon walls
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/Todra%20Hotel%20Azul%20upper.jpg');">
+                    <div class="photo-label">TODRA GORGE<br>Morning light on canyon walls</div>
                 </div>
-                <div class="img-placeholder gallery-image">
-                    TINEJDAD PALM GROVES<br>Oasis with Atlas backdrop
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/tinejdad.webp');">
+                    <div class="photo-label">TINEJDAD PALM GROVES<br>Oasis with Atlas backdrop</div>
                 </div>
-                <div class="img-placeholder gallery-image">
-                    FIRST SAHARA VIEWS<br>Dunes appearing on horizon
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/Merzouga_erg_chebbi_dunes.jpg');">
+                    <div class="photo-label">FIRST SAHARA VIEWS<br>Dunes appearing on horizon</div>
                 </div>
             </div>
 
@@ -171,14 +198,14 @@
 
             <h3>What Makes This Special</h3>
             <div class="image-gallery mb-lg">
-                <div class="img-placeholder gallery-image">
-                    ERG CHEBBI DEPARTURE<br>Looking back at dunes
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/sahara%20desert%20view.jpg');">
+                    <div class="photo-label">ERG CHEBBI DEPARTURE<br>Looking back at dunes</div>
                 </div>
                 <div class="img-placeholder gallery-image">
                     TAZZARINE ROUTE<br>Remote desert landscape
                 </div>
-                <div class="img-placeholder gallery-image">
-                    N'KOB APPROACH<br>45 kasbahs appearing
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/ait_omar_pool.jpg');">
+                    <div class="photo-label">N'KOB APPROACH<br>45 kasbahs appearing</div>
                 </div>
             </div>
 
@@ -210,8 +237,8 @@
 
             <h3>Major Highlights</h3>
             <div class="image-gallery mb-lg">
-                <div class="img-placeholder gallery-image">
-                    DRÂA VALLEY<br>Palm oasis, ancient kasbahs
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/draa%20valley%204.webp');">
+                    <div class="photo-label">DRÂA VALLEY<br>Palm oasis, ancient kasbahs</div>
                 </div>
                 <div class="img-placeholder gallery-image">
                     ANTI-ATLAS PASS<br>Mountain scenery, argan trees
@@ -219,8 +246,8 @@
                 <div class="img-placeholder gallery-image">
                     GOATS IN ARGAN TREES<br>If we're lucky!
                 </div>
-                <div class="img-placeholder gallery-image">
-                    TAROUDANT RAMPARTS<br>Approaching the walled city
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/taroudant%20souk.jpg');">
+                    <div class="photo-label">TAROUDANT<br>Approaching the walled city</div>
                 </div>
             </div>
 
@@ -256,8 +283,8 @@
                 <div class="img-placeholder gallery-image">
                     ATLANTIC OCEAN<br>First glimpses of the sea
                 </div>
-                <div class="img-placeholder gallery-image">
-                    TAGHAZOUT COAST<br>Surf beaches, fishing village
+                <div class="gallery-image gallery-photo" style="background-image: url('photo_brochure/Taghazout%20hyatt%20regency%202.jpg');">
+                    <div class="photo-label">TAGHAZOUT COAST<br>Surf beaches, fishing village</div>
                 </div>
             </div>
 
